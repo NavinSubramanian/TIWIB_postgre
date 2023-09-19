@@ -1,0 +1,204 @@
+{%load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>TIWIB</title>
+  <link href="{% static 'submit.css' %}" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="main__logo">
+    <a href="http://127.0.0.1:8000/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
+  </div>
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+
+  <section class="search__drop">
+    <div class="search__container">
+      <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+      <lord-icon src="https://cdn.lordicon.com/etwtznjn.json" trigger="loop" delay="2000"
+        colors="primary:#121331,secondary:#08a88a" style="width:150px;height:150px" class="lord__icon">
+      </lord-icon>
+      <form action="" class="search-bar">
+        <input type="text" placeholder="search here" name="query">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <div class="drop__containers">
+      <div class="dropdown" onmouseover="showRecipientOptions()" onmouseout="hideRecipientOptions()">
+        <button class="dropbtn btn-1">GIFTS BY RECIPTENT
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="men">Men</a>
+          <a href="womenl">Women</a>
+          <a href="/dad">Dad</a>
+          <a href="/mom">Mom</a>
+          <a href="/kids">Kids</a>
+          <a href="/teenboys">Teen Boys</a>
+          <a href="/teengirls">Teen Girls</a>
+          <a href="/boyfriend">Boyfriend</a>
+          <a href="/girlfriend">Girlfriend</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY OCCASION
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/fathersday">Father's Day</a>
+          <a href="/mothersday">Mother's Day</a>
+          <a href="/valentinesday">Valetines Day</a>
+          <a href="/aniversary">Anniversary</a>
+          <a href="/birthdaygift">Birthday Gifts</a>
+          <a href="/graduation">Graduation</a>
+          <a href="/engagement">Engagement</a>
+          <a href="/wedding">Wedding</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY CATEGORY
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/funny">Funny</a>
+          <a href="/gaggifts">Gag Gifts</a>
+          <a href="/geek">Geek</a>
+          <a href="/gamers">Gamers</a>
+          <a href="/food">Food</a>
+          <a href="/travel">Travel</a>
+          <a href="/movie">Movie</a>
+        </div>
+      </div>
+
+
+       <div class="dropdown">
+        <button class="dropbtn">MORE CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/allgiftsguide">All Guides</a>
+          <a href="/contactus">Contact Us</a>
+          <a href="/submitaproduct">Submit a Product</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <main>
+    <div class="main-submitprd">
+      <div class="subsection1">
+        <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png">
+        <h2>PITCH YOUR PRODUCT</h2>
+        <p>We'll show it to our users for a short period - if your product's engagement with our readers is<br> at least equal to or above the average of all products listed, it will earn a permanent spot on our site</p>
+        <button>GET STARTED</button>
+      </div>
+      <div class="subsection2">
+        <h2>How It Works</h2>
+        <div class="flexsubsect2">
+          <div>
+            <h3>Create Your Pitch</h3>
+            <img src="{% static 'images/screen.png' %}">
+            <p>After creating your listing, your <br> product will be shown to 20,000 <br> of our verified unique users</p>
+          </div>
+          <div>
+            <h3>Our Readers Engage</h3>
+            <img src="{% static 'images/network.png' %}">
+            <p>Unique clicks and wishlist saves are <br> measured and compared against <br> the average engagement performance of <br> all products currently listed</p>
+          </div>
+          <div>
+            <h3>Performance Is Tracked</h3>
+            <img src="{% static 'images/gauge.png' %}">
+            <p>If your pitch performs at least equal <br> to or above the average, it will <br> be permanently listed, included in <br> gift guides, newsletters, and social media</p>
+          </div>
+        </div>
+      </div>
+      <div class="subsection3">
+        <img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}">
+        <p>Your product pitch will look identical to other posts on our site, <br>
+          ensuring a consistent experience for our users to engage with</p>
+      </div>
+      <div class="subsection4">
+        <h1>The <b>This Is Why I'm Broke</b>  Audience</h1>
+        <div>
+          <p><span>2 million</span> <br>
+            monthly visitors</p>
+          <p><span>427k </span> <br>
+            email subscribers</p>
+          <p><span>391K</span> <br>
+            social media followers</p>
+          <p><span>18 - 34</span> <br>
+            average user age</p>
+          <p><span>73% : 27%</span> <br>
+            male : female ratio</p>
+        </div>
+      </div>
+      <div class="subsection5">
+        <h1 style="color: rgb(225, 147, 3);">The Boys</h1>
+        <div class="suc suc1">
+          <img src="{% static 'images/image1.jpg' %}" x style="float: right;">
+          <p></p>
+          <p style=" padding-top: 50px;">Nishanth Janarthanan <a href="https://www.amazon.com/dp/1511720247/?tag=097-20" target="_blank" style="text-decoration: none;">Grow The Fuck and Shop</a></p>
+        </div>
+        <div class="suc suc2">
+          <img src="{% static 'images/image5.jpg' %}" style="float: right;">
+          <p>"This Is Why I'm Broke helped Drop Stop get noticed in a big way. The hits to our website and Amazon listing as well as accompanying sales were amazing! And what’s even more amazing, it kept on going for YEARS after the original post. Folks still tell us that's where they discovered our invention."</p>
+          <p style=" padding-top: 30px;">Jeffrey Simon, <a href="https://www.buydropstop.com/" target="_blank" style="text-decoration: none;">Dropstop</a></p>
+        </div>
+        <div class="suc suc3">
+          <img src="{% static 'images/images/image4.jpg' %}" style="float: right;">
+          <p>"TIWIB drove 5 figures of sales and substantial traffic for over the year after it posted. It was the gift that kept giving because we ended up being highly rated on one of their categories so the sales continued for us for way longer than what we expected."</p>
+          <p style=" padding-top: 30px;">Tyler Ward, <a href="https://www.jokergreeting.com/" target="_blank" style="text-decoration: none;">PrankCandles</a></p>
+        </div>
+        <div class="suc suc4">
+          <img src="{% static 'images/images/image6.jpg' %}" style="float: right;">
+          <p>"As a young company with a unique product, ThisIsWhyImBroke is where you wanna be. It is a great platform to help creators of cool, innovative and interesting products."</p>
+          <p style=" padding-top: 40px;">Isaac Lavi, <a href="https://www.commonscents.tech/" target="_blank" style="text-decoration: none;">The Right Cup</a></p>
+        </div>
+        <button>GET STARTED</button>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-top">
+          <div class="footer-text">
+            <p>
+              <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png" alt="This Is Why Im Broke logo" class="footer-logo">
+              THIS IS WHY IM BROKE
+            </p>
+            <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
+          </div>
+          <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Affiliate Disclosure</a>
+            <a href="#">DMCA Policy</a>
+          </div>
+        </div>
+        <div class="footer-disclaimer">
+          <p>
+            ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn more about how our site works.</a>
+          </p>
+        </div>
+      </div>
+     </footer>
+  </main>
+
+  
+
+</body>
+
+</html>

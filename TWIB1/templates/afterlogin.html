@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>TIWIB</title>
+  <link href="{% static 'afterlogin.css' %}" rel="stylesheet" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&family=Oswald:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="main__logo">
+    <img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></img>
+    <form action="logins" method="post">
+      {%csrf_token%}
+      <button value="{{userid.id}}" name='user' class="view__pro">View Profile</button>
+      </form>    
+      <form action="logout" method="post">
+        {%csrf_token%}
+      <button class="view__pro">logout</button>
+    </form>
+  </div>
+  <img src="{% static 'images/61195ed506c73c67adaf0a3d_Group 44.svg' %}" class="main__images right__img" align="right">
+  <img src="{% static 'images/61195ef16ada8678daf3f267_Group 45.svg' %}" class="main__images left__img" align="left">
+  <div class="hero__sec">
+    <p class="para1">Unearth the extraordinary:</p>
+    <p class="para2">a curated collection of remarkable finds</p>
+    <p class="guaranteed">Products you’ll <img src="{% static 'images/61195da63e9b07d94bbaa046_heart (1).svg' %}"></img>,
+      guaranteed</p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/django.js/0.8.1/django.min.js"></script>
+  <script src="script.js"></script>
+  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+
+  <section class="search__drop">
+    <div class="search__container">
+      <!--
+      <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+      <lord-icon 
+        src="https://cdn.lordicon.com/etwtznjn.json"
+        trigger="loop"
+        delay="2000"
+        colors="primary:#121331,secondary:#08a88a"
+        style="width:150px;height:150px" class="lord__icon">
+      </lord-icon>
+      -->
+      <form action="search" class="search-bar" method="post">
+        {% csrf_token %}
+        <input type="text" list='values' placeholder="search here" name="query" style="appearance:none;">
+        <datalist id="values" style="appearance:none;">
+          {% for i in values %}
+          <option value="{{i.name}}" style="appearance:none;">
+          {% endfor %}
+        </datalist>
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <div class="drop__containers">
+      <div class="dropdown" onmouseover="showRecipientOptions()" onmouseout="hideRecipientOptions()">
+        <button class="dropbtn btn-1">GIFTS BY RECIPTENT
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/men">Men</a>
+          <a href="/women">Women</a>
+          <a href="/dad">Dad</a>
+          <a href="/mom">Mom</a>
+          <a href="/kids">Kids</a>
+          <a href="/teenboys">Teen Boys</a>
+          <a href="/teengirls">Teen Girls</a>
+          <a href="/boyfriend">Boyfriend</a>
+          <a href="/girlfriend">Girlfriend</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY OCCASION
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/fathersday">Father's Day</a>
+          <a href="/mothersday">Mother's Day</a>
+          <a href="/valentinesday">Valetines Day</a>
+          <a href="/aniversary">Anniversary</a>
+          <a href="/birthdaygift">Birthday Gifts</a>
+          <a href="/graduation">Graduation</a>
+          <a href="/engagement">Engagement</a>
+          <a href="/wedding">Wedding</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY CATEOGERY
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/anime">Anime</a>
+          <a href="/gaggifts">Gag Gifts</a>
+          <a href="/geek">Geek</a>
+          <a href="/gamers">Gamers</a>
+          <a href="/food">Food</a>
+          <a href="/travel">Travel</a>
+          <a href="/movie">Movie</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">MORE CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/allgiftsguide">All Guides</a>
+          <a href="/contactus">Contact Us</a>
+          <a href="/submitaproduct">Submit a Product</a>
+        </div>
+      </div>
+      
+    </div>
+
+  </section>
+
+  <section class="hero__stories">
+    <h1 style="display: flex;place-items: center;font-family: 'Montserrat';font-weight:500;font-size:30px;margin-bottom:-20px;">Blogs</h1>
+    <h5 style="font-family: 'Montserrat';font-weight:300;font-size:20px;margin-bottom:20px;">For all your needs</h5>
+    <div class="cont__blog">
+      <div class="story__1 stories">
+        <img src="{% static 'images/lovedones.jpeg' %}"></img>
+        <p class="hide__p">Behold, my favorite luscious dessert! This cheesecake recipe hails from the Basque region of
+          Spain—specifically, from a restaurant called La Viña.Honestly, I’m not sure why this cheesecake is called Basque
+          cheesecake over here. We should call it La Viña cheesecake or Santiago Rivera’s cheesecake.</p>
+         <a href="/women" style="text-decoration:none;"><h5>100 gifts for your loved ones</h5></a> 
+      </div>
+      <div class="story__2 stories">
+        <img src="{% static 'images/teenboys.webp' %}">
+        <p class="hide__p">There is nothing like a mother’s love; dedicating just one day does not suffice for everything a mom does for
+          her kids because every day is Mother's Day, as her love is endless. The list of her selfless and unconditional
+          deeds is ongoing, which is why the day to celebrate her love and care should be exquisite.</p>
+        <a href="/teenboys" style="text-decoration:none;"><h5>30 gifts that all age will like</h5></a>
+      </div>
+      <div class="story__3 stories">
+        <img src="{% static 'images/graduation.jpg' %}"></img>
+        <p class="hide__p">We are making our seeds available a few months earlier than usual because our shop manager Nikki is having a
+          baby! While we typically offer hardy annuals and sweet peas in the fall, we’re moving the sale date up to allow
+          plenty of time to get everyone’s orders packed and safely out the door before her little one arrives.</p>
+        <a href="/graduation" style="text-decoration:none;"><h5>50 Gifts that you can give on graduation day</h5></a>
+      </div>
+      <div class="story__4 stories">
+        <img src="{% static 'images/mom.jpg' %}"></img>
+        <p class="hide__p">A sinking, uncomfortable feeling that I know all too well. It is the same feeling that comes on Sunday evenings
+          as another week in the office beckons. The same feeling that comes when the long awaited annual two week holiday
+          is almost over. I remember the exact same feeling a few years ago.</p>
+        <a href="/mothersday" style="text-decoration:none;"><h5 >100+ Gifts that can cheer your mom</h5></a>
+      </div>
+      <div class="story__5 stories">
+        <img src="{% static 'images/daughter.jpg' %}"></img>
+        <p class="hide__p">A sinking, uncomfortable feeling that I know all too well. It is the same feeling that comes on Sunday evenings
+          as another week in the office beckons. The same feeling that comes when the long awaited annual two week holiday
+          is almost over. I remember the exact same feeling a few years ago.</p>
+        <a href="/teengirls" style="text-decoration:none;"><h5>20 Gifts you can give to your daughter</h5></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="scroller">
+    <div class="slide__track">
+
+      <div class="slide">
+        <img src="{% static 'images/42-423505_forbes-logo-black-and-white-forbes-logo-white.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/download.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/gizmodo-logo-white.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/huffpost-logo-white.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/msn-logo-white.png' %}">
+      </div>
+
+
+
+      <div class="slide">
+        <img src="{% static 'images/42-423505_forbes-logo-black-and-white-forbes-logo-white.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/download.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/gizmodo-logo-white.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/huffpost-logo-white.png' %}">
+      </div>
+      <div class="slide">
+        <img src="{% static 'images/msn-logo-white.png' %}">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="item__layout">
+    {% for op in value %}
+    <div class="flex-item">
+       <a href="#" class="item-name">{{op.name}}</a>
+       <img class="item1" src="{{op.pic}}">
+       <button class="savebtn"> SAVE</button>
+       <p class="item-body">{{op.des}}</p>
+       <p class="item-stat">{{op.rate}}</p>
+       <a href="{{op.link}}"
+         target="_blank">
+         <button class="item-check">CHECK IT OUT</button>
+       </a>
+     </div>
+     {% endfor %}
+  </section>
+
+   <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-text">
+          <p>
+            <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png" alt="This Is Why Im Broke logo" class="footer-logo">
+            THIS IS WHY IM BROKE
+          </p>
+          <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
+          <div class="footer-links">
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p>
+          ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn more about how our site works.</a>
+        </p>
+      </div>
+    </div>
+   </footer>
+
+</body>
+
+</html>

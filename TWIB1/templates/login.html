@@ -1,0 +1,150 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&family=Lato:wght@300;500;700&family=Oswald:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+
+<body>
+
+  <div class="main__logo">
+    <a href="http://127.0.0.1:8000/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
+  </div>
+
+  <section class="search__drop">
+    
+    <div class="drop__containers">
+      <div class="dropdown" onmouseover="showRecipientOptions()" onmouseout="hideRecipientOptions()">
+        <button class="dropbtn btn-1">GIFTS BY RECIPTENT
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/men">Men</a>
+          <a href="/women">Women</a>
+          <a href="/dad">Dad</a>
+          <a href="/mom">Mom</a>
+          <a href="/kids">Kids</a>
+          <a href="/teenboys">Teen Boys</a>
+          <a href="/teengirls">Teen Girls</a>
+          <a href="/boyfriend">Boyfriend</a>
+          <a href="/girlfriend">Girlfriend</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY OCCASION
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/fathersday">Father's Day</a>
+          <a href="/mothersday">Mother's Day</a>
+          <a href="/valentinesday">Valetines Day</a>
+          <a href="/aniversary">Anniversary</a>
+          <a href="/birthdaygift">Birthday Gifts</a>
+          <a href="/graduation">Graduation</a>
+          <a href="/engagement">Engagement</a>
+          <a href="/wedding">Wedding</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY CATEOGERY
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/funny">Funny</a>
+          <a href="/gaggifts">Gag Gifts</a>
+          <a href="/geek">Geek</a>
+          <a href="/gamers">Gamers</a>
+          <a href="/food">Food</a>
+          <a href="/travel">Travel</a>
+          <a href="/movie">Movie</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">MORE CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/allgiftsguide">All Guides</a>
+          <a href="/contactus">Contact Us</a>
+          <a href="/submitaproduct">Submit a Product</a>
+        </div>
+      </div>
+    
+
+  </section>
+
+  <section class="login__container">
+    <div class="self__info">
+        <div class="lleft">
+            <h1 style="font-family: 'Oswald';">{{n2.name}}</h1>
+            <h3 style="font-family: 'Arial';">{{n2.id}}</h3>
+        </div>
+        <div class="lright">
+            <img src="{%static 'images/profile.png'%}" alt="">
+        </div>
+    </div>
+    <h2 style="margin-left:auto;margin-right:auto; font-family:'Poppins';">Saved Items</h2>
+    <section class="item__layout">
+      {% for ops in pros %}
+      {%for op in ops%}
+       <div class="flex-item">
+          <a href="#" class="item-name" style="text-decoration:none;font-family:'Poppins';color:black">{{op.name}}</a>
+          <img class="item1" src="{{op.pic}}">
+          <form id='formId' method="post" action="unsavedproducts">
+            {%csrf_token%}
+            <button type='submit' class="savebtn" value="{{op.id}}" name="unsaved"> UNSAVE</button>
+          </form>
+          <p class="item-body">{{op.des}}</p>
+          <p class="item-stat">{{op.rate}}</p>
+          <a href="{{op.link}}"
+            target="_blank">
+            <button class="item-check">CHECK IT OUT</button>
+          </a>
+        </div>
+        {%endfor%}
+        {% endfor %}
+    </section>
+  </section>
+
+  <footer>
+  
+    <div class="footer-content">
+    <div class="footer-top">
+      <div class="footer-text">
+        <p>
+          <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png" alt="This Is Why Im Broke logo" class="footer-logo">
+          THIS IS WHY IM BROKE
+        </p>
+        <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
+      </div>
+      <div class="footer-links">
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Affiliate Disclosure</a>
+        <a href="#">DMCA Policy</a>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <p>
+        ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn more about how our site works.</a>
+      </p>
+    </div>
+  </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 's/style2.css' %}">
+  <title>ThisISWhyImBroke :: The Internets's Mall Clone</title>
+  <link rel="icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins&family=Roboto+Condensed:wght@700&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <section class="landing__page">
+    <div class="main__logo">
+      <img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></img>
+    </div>
+  </section>
+  <section class="search__drop" style="margin-top: 10px">
+    <div class="drop__containers">
+      <!-- Need to change link for new button -->
+
+      <a href="#"><button class="btn-5">WHATS NEW</button></a>
+      
+      <div class="dropdown" onmouseover="showRecipientOptions()" onmouseout="hideRecipientOptions()">
+        <button class="dropbtn btn-1">GIFTS BY RECIPTENT
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/men">Men</a>
+          <a href="/women">Women</a>
+          <a href="/dad">Dad</a>
+          <a href="/mom">Mom</a>
+          <a href="/kids">Kids</a>
+          <a href="/teenboys">Teen Boys</a>
+          <a href="/teengirls">Teen Girls</a>
+          <a href="/boyfriend">Boyfriend</a>
+          <a href="/girlfriend">Girlfriend</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">GIFTS BY OCCASION
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/fathersday">Father's Day</a>
+          <a href="/mothersday">Mother's Day</a>
+          <a href="/valentinesday">Valetines Day</a>
+          <a href="/aniversary">Anniversary</a>
+          <a href="/birthdaygift">Birthday Gifts</a>
+          <a href="/graduation">Graduation</a>
+          <a href="/engagement">Engagement</a>
+          <a href="/wedding">Wedding</a>
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="dropbtn">TRENDING GIFTS
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/anime">Anime</a>
+          <a href="/gaggifts">Gag Gifts</a>
+          <a href="/geek">Geek</a>
+          <a href="/gamers">Gamers</a>
+          <a href="/food">Food</a>
+          <a href="/travel">Travel</a>
+          <a href="/movie">Movie</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn">MORE CATEGORIES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="/allgiftsguide">All Guides</a>
+          <a href="/contactus">Contact Us</a>
+          <a href="/submitaproduct">Submit a Product</a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  <main style="width:100vw;">
+    <div class="guides">
+      <h1 class="guides-header">GIFT GUIDES</h1>
+      <p class="guides-body">Holiday, birthday, special occasion and “just because” gift-buying is a breeze thanks to our carefully curated gift guides. The handpicked gift ideas on the lists here cover gifts your friends need, presents your family wants, and treats your loved ones didn’t know they had to have. There’s something for everyone right here, and we searched everywhere to give you gift guides that keep giving. From high-quality tech to tasty treats for foodies, bestsellers to unique one-of-a-kind items, the world of perfect presents is at your fingertips.</p>
+    </div>
+    <hr>
+    <div class="guide-container">
+<div class="flex-item">
+        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/938_thumbmail/meme-gifts.jpg">
+          
+          <h1 class="cat-body">55 Viral Meme Gifts That Are Guaranteed To Make You Laugh Your Butt Off</h1>
+
+      </div>      
+      <div class="flex-item">
+        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/937_thumbmail/gifts-for-single-moms.jpg">
+          <h1 class=cat-body>55 Stupendous Gifts For Single Moms Who Deserve Something Special</h1>
+      </div>  
+      <div class="flex-item">
+        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/909_thumbmail/gender-neutral-gifts-for-adults.jpg">
+          <h1 class="cat-body">44 Cool Gender Neutral Gifts For Adults Guaranteed To Make Anyone Smile</h1>
+      </div>  
+      <div class="flex-item">
+        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/463_thumbmail/kitchen-gifts.jpg">
+          <h1 class="cat-body">27 Life-Changing Kitchen Gifts That Every Homeowner Must Have</h1>
+      </div> 
+       <div class="flex-item">
+        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/939_thumbmail/boxing-gifts.jpg">
+          <h1 class="cat-body">37 Knock-Out Boxing Gifts That'll Make You Feel Like A Heavyweight Champ</h1>
+      </div> 
+       <div class="flex-item">
+        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/934_thumbmail/funny-personalized-gifts.jpg">
+          <h1 class="cat-body">28 Ridiculously Funny Personalized Gifts Perfect For Anyone With A Silly Sense Of Humor</h1>
+      </div> 
+      
+    </div>
+    </div> 
+
+
+    <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-text">
+          <p>
+            <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png" alt="This Is Why Im Broke logo" class="footer-logo">
+            THIS IS WHY IM BROKE
+          </p>
+          <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
+          <div class="footer-links">
+            <a href="/contactus">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-disclaimer">
+        <p>
+          ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn more about how our site works.</a>
+        </p>
+      </div>
+    </div>
+   </footer>
+    
+  </main>
+
+
+</body>
+
+</html>
