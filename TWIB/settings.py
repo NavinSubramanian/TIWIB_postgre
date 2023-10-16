@@ -18,6 +18,12 @@ X_FRAME_OPTIONS = '*'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ
+
+env = environ.Env()
+
+environ.Env.read_env()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -26,17 +32,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-owqz8od)wgsgj^i_@-)j5eec3dpyxl^lr=7u2+r+8uoci0pm&m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True #CHANGE TO FALSE IN HOSTING 
+DEBUG = False #CHANGE TO FALSE IN HOSTING 
 
 
-ALLOWED_HOSTS = ['0917caf3-d9a2-4edc-a8ba-4293d384bdaf.id.repl.co',
-                'tiwib-django.nishanthjanarth.repl.co',
-                'tiwibclone--navinsubramania.repl.co',
-                'tiwibclone.navinsubramania.repl.co',
-                '127.0.0.1',
-                '.vercel.app',
-                '.now.sh',
-                'localhost',]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,7 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TWIB.wsgi.application'
 
-
+'''
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 DATABASES = {
@@ -93,6 +92,13 @@ DATABASES = {
         'HOST': 'containers-us-west-88.railway.app',
         'PORT': '6716',
     }
+}
+'''
+
+import dj_database_url
+
+DATABASES = {
+    'default' : dj_database_url.parse(env('DATABASE_URL'))
 }
 
 # Password validation
