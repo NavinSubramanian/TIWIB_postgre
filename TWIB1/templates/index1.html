@@ -14,11 +14,14 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&family=Oswald:wght@500&display=swap"
     rel="stylesheet">
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+
+  <!-- Landing Body -->
+
   <section class="landing__page">
     <div class="main__logo">
       <img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></img>
@@ -39,109 +42,107 @@
       guaranteed</p>
   </section>
 
-    <!--Login Content-->
-    
-    <div id="loginContent">
-      <div class="center-form">
-        <form class="loginform" method="post" action="check">
-          {% csrf_token %}
-          <div class="login-container">
-            <img class="login-img" src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}">
-          </div>     
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="user" required class="form-text">
-          </div>
-          <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" id="password" name="password" required class="form-password">
-          </div>
-          <div class="form-group">
-            <input type="submit" value="LOGIN" onclick="login()" class="form-submit">
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <script>
-      document.getElementById("openLogin").addEventListener("click", function() {
-        document.getElementById("loginContent").style.display = "flex";
-      });
-    
-      document.getElementById("loginContent").addEventListener("click", function(event) {
-        if (event.target === this) {
-          this.style.display = "none";
-        }
-      });
-    </script>
-
-    <!--Register Content-->
-    
-    <div id="popupContainer">
-      <div id="popupContent">
-        <div class="modal-register">
-            <img class="small-logo-login" src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" alt="ThisIsWhyImBroke Logo" />
-            <h2>Join Us!</h2>
-            <form action="register" method="post">
-          {% csrf_token %}
-            <div class="form-group-container">
-              <div class="form-group">
-                <input
-                  class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                  type="text"
-                  name="email"
-                  ng-model="registerData.email"
-                  id="registerEmail"
-                  placeholder="Email address"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control ng-pristine ng-untouched ng-valid ng-empty"
-                  type="password"
-                  name="password"
-                  ng-model="registerData.password"
-                  id="registerPassword"
-                  placeholder="Password"
-                />
-              </div>
-              <input
-                class="btn btn-default"
-                type="submit"
-                value="CREATE ACCOUNT"
-                id="submit"
-              /><br />
-              <a class="grey-link" ng-click="switchToLogin()"
-                >Already a member? Log in</a
-              >
-            </div>
-          </form>
+  <!--Login Content-->
+  
+  <div id="loginContent">
+    <div class="center-form">
+      <form class="loginform" method="post" action="check">
+        {% csrf_token %}
+        <div class="login-container">
+          <img class="login-img" src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}">
+        </div>     
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="user" required class="form-text">
         </div>
-        <div class="modal-register-post" style="display: none">
-          <h1>Success!</h1>
-          Your account has been created! You can now add items to your wishlist.<br/><button
-            class="button"
-            ng-click="close('Cancel');"
-          >
-            Finish
-          </button>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required class="form-password">
         </div>
-      </div>
+        <div class="form-group">
+          <input type="submit" value="LOGIN" onclick="login()" class="form-submit">
+        </div>
+      </form>
     </div>
+  </div>
 
-    <script>
-      document.getElementById("openPopup").addEventListener("click", function() {
-      document.getElementById("popupContainer").style.display = "block";
+  <script>
+    document.getElementById("openLogin").addEventListener("click", function() {
+      document.getElementById("loginContent").style.display = "flex";
     });
-    
-    document.getElementById("popupContainer").addEventListener("click", function(event) {
+  
+    document.getElementById("loginContent").addEventListener("click", function(event) {
       if (event.target === this) {
         this.style.display = "none";
       }
     });
-    </script>
+  </script>
 
+  <!--Register Content-->
+  
+  <div id="popupContainer">
+    <div id="popupContent">
+      <div class="modal-register">
+          <img class="small-logo-login" src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" alt="ThisIsWhyImBroke Logo" />
+          <h2 style="font-family: 'Poppins';">Join Us!</h2>
+          <form action="register" method="post">
+        {% csrf_token %}
+          <div class="form-group-container">
+            <div class="form-group">
+              <label for="registerEmail" style="font-family: 'Poppins';">Email:</label>
+              <input
+                class="form-control ng-pristine ng-untouched ng-valid ng-empty form-text"
+                type="text"
+                name="email"
+                ng-model="registerData.email"
+                id="registerEmail"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword" style="font-family: 'Poppins';">Password:</label>
+              <input
+                class="form-control ng-pristine ng-untouched ng-valid ng-empty form-text"
+                type="password"
+                name="password"
+                ng-model="registerData.password"
+                id="registerPassword"
+              />
+            </div>
+            <input
+              class="btn btn-default"
+              type="submit"
+              value="CREATE ACCOUNT"
+              id="submit"
+            /><br />
+            <a class="grey-link" ng-click="switchToLogin()"
+              >Already a member? Log in</a
+            >
+          </div>
+        </form>
+      </div>
+      <div class="modal-register-post" style="display: none">
+        <h1>Success!</h1>
+        Your account has been created! You can now add items to your wishlist.<br/><button
+          class="button"
+          ng-click="close('Cancel');"
+        >
+          Finish
+        </button>
+      </div>
+    </div>
   </div>
+
+  <script>
+    document.getElementById("openPopup").addEventListener("click", function() {
+    document.getElementById("popupContainer").style.display = "block";
+  });
+  
+  document.getElementById("popupContainer").addEventListener("click", function(event) {
+    if (event.target === this) {
+      this.style.display = "none";
+    }
+  });
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/django.js/0.8.1/django.min.js"></script>
 
@@ -157,7 +158,7 @@
       <i class="fa fa-chevron-right next"></i>
     </div>
     
-    <div class="cont__blog">
+    <div class="cont__blog" style="font-family: 'Poppins';">
       <div class="story__1 stories">
         <img src="{% static 'images/lovedones.jpeg' %}"></img>
         <a href="/women" style="text-decoration:none;"><h5>100 gifts for your loved ones</h5></a> 
@@ -184,7 +185,9 @@
       </div>
     </div>
 
-    <div><a href="/allguides"><button style="padding:5px;border:none;border-radius:5px;background-color:black;color:white;">More Blogs</button></a></div>
+    <div>
+      <a href="/allguides/"><button style="border:none;border-radius:9px;background-color: #262626;color:white;cursor: pointer;padding: 10px;font-family: 'Poppins';">More Blogs</button></a>
+    </div>
     
   </section>
 
@@ -214,70 +217,83 @@
     </div>
 
   
-    <div class="drop__containers">
+    <div class="drop__containers" style="display: flex;align-items: center;justify-content: center;column-gap: 10px;">
 
       <!-- Need to change link for new button -->
 
-      <a href="#"><button class="btn-5">WHATS NEW</button></a>
+      <a href="/home/" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;row-gap: 10px;justify-content: center;">
+        <i class="fa-solid fa-house"></i>
+        <button class="btn-5">WHATS NEW</button>
+      </a>
       
       <div class="dropdown" onmouseover="showRecipientOptions()" onmouseout="hideRecipientOptions()">
-        <button class="dropbtn btn-1">GIFTS BY RECIPTENT
+
+        
+        <button class="dropbtn btn-1">
+          <i class="fa-solid fa-person"></i><br>
+          GIFTS BY RECIPTENT
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
           <a href="/men/">Men</a>
-          <a href="/women">Women</a>
-          <a href="/dad">Dad</a>
-          <a href="/mom">Mom</a>
-          <a href="/kids">Kids</a>
-          <a href="/teenboys">Teen Boys</a>
-          <a href="/teengirls">Teen Girls</a>
-          <a href="/boyfriend">Boyfriend</a>
-          <a href="/girlfriend">Girlfriend</a>
+          <a href="/women/">Women</a>
+          <a href="/dad/">Dad</a>
+          <a href="/mom/">Mom</a>
+          <a href="/kids/">Kids</a>
+          <a href="/teenboys/">Teen Boys</a>
+          <a href="/teengirls/">Teen Girls</a>
+          <a href="/boyfriend/">Boyfriend</a>
+          <a href="/girlfriend/">Girlfriend</a>
         </div>
       </div>
 
 
       <div class="dropdown">
-        <button class="dropbtn">GIFTS BY OCCASION
+        <button class="dropbtn">
+          <i class="fa-solid fa-gift"></i><br>
+          GIFTS BY OCCASION
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="/fathersday">Father's Day</a>
-          <a href="/mothersday">Mother's Day</a>
-          <a href="/valentinesday">Valetines Day</a>
-          <a href="/aniversary">Anniversary</a>
-          <a href="/birthdaygift">Birthday Gifts</a>
-          <a href="/graduation">Graduation</a>
-          <a href="/engagement">Engagement</a>
-          <a href="/wedding">Wedding</a>
+          <a href="/fathersday/">Father's Day</a>
+          <a href="/mothersday/">Mother's Day</a>
+          <a href="/valentinesday/">Valetines Day</a>
+          <a href="/aniversary/">Anniversary</a>
+          <a href="/birthdaygift/">Birthday Gifts</a>
+          <a href="/graduation/">Graduation</a>
+          <a href="/engagement/">Engagement</a>
+          <a href="/wedding/">Wedding</a>
         </div>
       </div>
 
 
       <div class="dropdown">
-        <button class="dropbtn">TRENDING GIFTS
+        <button class="dropbtn">
+          <i class="fa-solid fa-arrow-trend-up"></i><br>
+          TRENDING GIFTS
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="/anime">Anime</a>
-          <a href="/starwars">Starwars</a>
-          <a href="/geek">Geek</a>
-          <a href="/gamers">Gamers</a>
-          <a href="/food">Food</a>
-          <a href="/travel">Travel</a>
-          <a href="/movie">Movie</a>
+          <a href="/anime/">Anime</a>
+          <a href="/starwars/">Starwars</a>
+          <a href="/geek/">Geek</a>
+          <a href="/gamers/">Gamers</a>
+          <a href="/food/">Food</a>
+          <a href="/travel/">Travel</a>
+          <a href="/movie/">Movie</a>
         </div>
       </div>
 
       <div class="dropdown">
-        <button class="dropbtn">MORE CATEGORIES
+        <button class="dropbtn">
+          <i class="fa-solid fa-gear"></i><br>
+          MORE CATEGORIES
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="/allgiftsguide">All Guides</a>
-          <a href="/contactus">Contact Us</a>
-          <a href="/submitaproduct">Submit a Product</a>
+          <a href="/allgiftsguide/">All Guides</a>
+          <a href="/contactus/">Contact Us</a>
+          <a href="/submitaproduct/">Submit a Product</a>
         </div>
       </div>
       

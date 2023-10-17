@@ -4,10 +4,17 @@ body {
   margin:0;
   box-sizing: border-box;
   margin-top: 5px;
+  overflow-x: hidden;
 }
 
 body{
   background-color: #FBE8DE;
+  width: 100vw;
+  height: auto;
+}
+
+.fa-solid{
+  color: #221f45;
 }
 
 
@@ -15,6 +22,7 @@ body{
 
 
 .landing__page{
+  margin-top: 20px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
@@ -376,7 +384,7 @@ h1{
   font-size:50px;
 }
 
-hr{
+.serp{
   margin-top:50px;
   margin-bottom:25px;
   width: 65%;
@@ -1119,8 +1127,10 @@ h2 {
 }
 
 .drop__containers{
+  z-index: 15;
   display: flex;
   align-items: center;
+  background-color: #FBE8DE;
   justify-content: center;
 }
 
@@ -1133,19 +1143,13 @@ h2 {
 }
 
 .btn-5{
-  background-color: #262626;
-  color: white;
-  border-radius: 8px;
   border: none;
-  padding: 8px;
-  margin-top: 5px;
+  color: transparent;
+  font-size: 18px;
   font-family: 'Oswald';
-  transition: 1s;
+  background-color: transparent;
+  color: #221f45;
   cursor: pointer;
-}
-
-.btn-5:hover{
-  transform: translateY(-9px);
 }
 
 /* Dropdown button */
@@ -1153,7 +1157,8 @@ h2 {
   font-size: 20px;
   border: none;
   outline: none;
-  color: #545454;
+  color: #221f45;
+  /* color: #545454; */
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;

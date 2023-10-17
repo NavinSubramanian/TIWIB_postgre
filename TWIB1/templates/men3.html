@@ -9,13 +9,13 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&family=Lato:wght@300;500;700&family=Oswald:wght@500&display=swap"
     rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'men.css' %}">
 </head>
 
 <body>
   <div class="main__logo">
-    <a href="https://tiwibclone.navinsubramania.repl.co/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
+    <a href="/home/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
   </div>
 
   <!-- For Search drop
@@ -91,15 +91,28 @@
 
   <section class="men_section">
     {% for op in values %}
-    <div class="blog-box">
-      <h1>{{op.name}}</h1>
-    </div>
     <div class="background">
       <img class="men" src="{{op.photo}}">
+      <div></div>
     </div>
-    <div class="body">
-      <p class="men-body">{{op.description|safe}} </p>
+    <div class="back__">
+      <div class="left__">
+        <i class="fa-solid fa-eye" style="font-size: 24px;color: #221f45;"></i>
+        <i class="fa-regular fa-thumbs-up" style="font-size: 24px;color: #221f45;"></i>
+        <!-- <i class="fa-solid fa-list" style="font-size: 24px;color: #221f45;"></i> -->
+        <i class="fa-solid fa-grip" style="font-size: 24px;color: #221f45;"></i>
+      </div>
+      <div class="right__">
+        <div class="blog-box">
+          <h1>{{op.name}}</h1>
+        </div>
+        <div class="body">
+          <p class="men-body">{{op.description|safe}} </p>
+        </div>
+      </div>
     </div>
+    
+      
     {% endfor %}
   </section>
 
@@ -161,10 +174,10 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Franchise</a></li>
-                    <li><a href="/anime">Anime</a></li>
+                    <li><a href="/anime/">Anime</a></li>
                     <li><a href="#">Marvel</a></li>
                     <li><a href="#">DC</a></li>
-                    <li><a href="/starwars">StarWars</a></li>
+                    <li><a href="/starwars/">StarWars</a></li>
                     <li><a href="#">Lego</a></li>
                 </ul>
             </li>
@@ -178,15 +191,15 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Gift By Reciptent</a></li>
-                    <li><a href="/men">Men</a></li>
-                    <li><a href="/women">Women</a></li>
-                    <li><a href="/dad">Dad</a></li>
-                    <li><a href="/mom">Mom</a></li>
-                    <li><a href="/kids">Kids</a></li>
-                    <li><a href="/teenboys">Teen Boys</a></li>
-                    <li><a href="/teengirls">Teen Girls</a></li>
-                    <li><a href="/boyfriend">Boyfriend</a></li>
-                    <li><a href="/girlfriend">Girlfriend</a></li>
+                    <li><a href="/men/">Men</a></li>
+                    <li><a href="/women/">Women</a></li>
+                    <li><a href="/dad/">Dad</a></li>
+                    <li><a href="/mom/">Mom</a></li>
+                    <li><a href="/kids/">Kids</a></li>
+                    <li><a href="/teenboys/">Teen Boys</a></li>
+                    <li><a href="/teengirls/">Teen Girls</a></li>
+                    <li><a href="/boyfriend/">Boyfriend</a></li>
+                    <li><a href="/girlfriend/">Girlfriend</a></li>
                 </ul>
             </li>
             <li>
@@ -199,14 +212,14 @@
                 </div>
                 <ul class="sub-menu">
                     <li><a class="link_name" href="#">Gifts By Ocassion</a></li>
-                    <li><a href="/fathersday">Father's Day</a></li>
-                    <li><a href="/mothersday">Mother's Day</a></li>
-                    <li><a href="/valentinesday">Valentine's Day</a></li>
-                    <li><a href="/anniversary">Anniversary</a></li>
-                    <li><a href="/birthdaygifts">Birthday Gifts</a></li>
-                    <li><a href="/graduation">Graduation</a></li>
-                    <li><a href="/engagement">Engagement</a></li>
-                    <li><a href="/wedding">Wedding</a></li>
+                    <li><a href="/fathersday/">Father's Day</a></li>
+                    <li><a href="/mothersday/">Mother's Day</a></li>
+                    <li><a href="/valentinesday/">Valentine's Day</a></li>
+                    <li><a href="/anniversary/">Anniversary</a></li>
+                    <li><a href="/birthdaygifts/">Birthday Gifts</a></li>
+                    <li><a href="/graduation/">Graduation</a></li>
+                    <li><a href="/engagement/">Engagement</a></li>
+                    <li><a href="/wedding/">Wedding</a></li>
                 </ul>
             </li>
             <li>
@@ -232,14 +245,13 @@
                 </a>
                 <ul class="sub-menu blank">
                     <li><a class="link_name" href="#">More Categories</a></li>
-                    <li><a href="#">All Gift Guides</a></li>
-                    <li><a href="#">Random</a></li>
-                    <li><a href="#">Submit a Product</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="/allgiftsguide/">All Gift Guides</a></li>
+                    <li><a href="/contactus/">Submit a Product</a></li>
+                    <li><a href="/submitaproduct/">Contact Us</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="/home/">
                     <i class='bx bx-home'></i>
                     <span class="link_name">Home</span>
                 </a>

@@ -1,16 +1,30 @@
-html {
-    height: 100%;
-    width: 100%;
+html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
   body {
+    width: 100vw;
+    height: auto;
+    overflow-x: hidden;
     background-color: #FBE8DE;
-  
   }
-  
+
+  .btn-5{
+    border: none;
+    color: transparent;
+    font-size: 18px;
+    font-family: 'Oswald';
+    background-color: transparent;
+    color: #221f45;
+    cursor: pointer;
+  }
+
+  .fa-solid{
+    color: #221f45;
+  }
+
   .main__logo {
     justify-content: center;
     align-items: center;
@@ -117,7 +131,6 @@ html {
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
-    background-color: white;
   }
   .lord__icon{
     position:absolute;
@@ -182,7 +195,8 @@ html {
     font-size: 20px;
     border: none;
     outline: none;
-    color: #545454;
+    color: #221f45;
+    /* color: #545454; */
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
@@ -445,6 +459,17 @@ html {
     padding: 10px;
     border-radius: 3px;
     border: 1px solid #ccc;
+  }
+  @media screen and (max-width:500px) {
+    select{
+      width: 60%;
+    }
+    .con-text, .con-email, .con-textarea{
+      width: 60%;
+    }
+    .con-submit{
+      margin-left: 182px;
+    }
   }
   
   .separator {
