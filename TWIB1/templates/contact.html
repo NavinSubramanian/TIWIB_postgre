@@ -13,9 +13,51 @@
 </head>
 
 <body>
-  <div class="main__logo">
-    <a href="/home/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
-  </div>
+  <section class="landing__page">
+    <div class="main__logo">
+      <a href="/home/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
+    </div>
+    <div class="openMenu"><i class="fa-solid fa-bars"></i></div>
+    <ul class="mainMenu">
+      <li><a href="/home/">Home</a></li>
+      <li><a href="/allgiftsguide/">Gift Blogs</a></li>
+      <li><a href="/submitaproduct/">Submit Product</a></li>
+      <li><a href="/contactus/">Contact</a></li>
+      <div class="closeMenu"><i class="fa-solid fa-xmark"></i></div>
+      <hr style="width: 90%;">
+      <span class="icons">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-x-twitter"></i>
+      </span>
+    </ul>
+    <!-- Hamburger script -->
+
+    <script>
+      const mainMenu = document.querySelector('.mainMenu');
+      const closeMenu = document.querySelector('.closeMenu');
+      const openMenu = document.querySelector('.openMenu');
+      const menu_items = document.querySelectorAll('nav .mainMenu li a');
+
+      openMenu.addEventListener('click',show);
+      closeMenu.addEventListener('click',close);
+
+      // close menu when you click on a menu item 
+      menu_items.forEach(item => {
+          item.addEventListener('click',function(){
+              close();
+          })
+      })
+
+      function show(){
+          mainMenu.style.top = '0';
+      }
+      function close(){
+          mainMenu.style.top = '-100%';
+      }
+    </script>
+  </section>
+  
 
   <section class="search__drop" style="position: relative;">
     <hr style="z-index: 10; position: absolute;border: none;height: 9px;background-color: #221f45;width: 100%;display: flex;align-items: center;justify-content: center;">

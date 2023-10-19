@@ -675,3 +675,104 @@ html,body {
     margin:  0 50px 0 50px;
   }
   
+  /* Burger */
+
+  .landing__page{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 7vh;
+  }
+  .openMenu{
+    display: none;
+  }
+  .mainMenu {
+    display: none;
+    list-style: none;
+  }
+  
+  
+  @media screen and (max-width:1025px) {
+    .mainMenu li a {
+      display: inline-block;
+      padding: 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: rgb(255, 255, 255);
+      font-family: 'Poppins';
+      font-size: 18px;
+      transition: 0.2s ease;
+    }
+    .mainMenu{
+      height: 100vh;
+      position: fixed;
+      display: flex;
+      overflow: hidden;
+      top: 0px;
+      right: 0px;
+      left: 0px;
+      z-index: 9999;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #221f45;
+      transition: top 1s ease 0s;
+    }
+    .closeMenu{
+      display: block;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .closeMenu i{
+      color: white;
+      font-size: 20px;
+    }
+    .icons i {
+      display: inline-block;
+      padding: 12px;
+      color: white;
+    }
+    .openMenu{
+      padding: 18px;
+      border-radius: 8px;
+      background-color: rgb(251 251 251 / 60%);
+      /* position: sticky;
+      top: 0; */
+      display: flex;
+      place-items: center;
+      border: 2px solid black;
+      cursor: pointer;
+    }
+    .landing__page{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .main__logo{
+      display: block;
+    }
+    .dropdown:nth-child(5){
+      display: none;
+    }
+    .header__img{
+      height: 75px;
+      width: 270px;
+    }
+  }
+  @media screen and (max-width:650px) {
+    .header__img{
+      height: 60px;
+      width: 230px;
+    }
+    .dropdown .dropbtn{
+      font-size: 14px;
+    }
+    .drop__containers a i{
+      font-size: 14px;
+    }
+    .btn-5{
+      font-size: 14px;
+    }
+  }

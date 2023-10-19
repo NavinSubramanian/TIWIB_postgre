@@ -119,7 +119,7 @@ def func2(para1,para,b,max1,max2):
 
 def index(request):
         option=Content.objects.all()
-        option2=Content.objects.filter(type__contains='home').values()
+        option2=Content.objects.filter(type__contains='home').values().order_by("id").reverse()
         global b
         print(b)
         return render(request,b,{'value':option2,'values':option})
@@ -199,7 +199,7 @@ def boyfriend(request):
 def fathersday(request):
         global a
         a='fathersday'
-        return func1('fathersday',request,max1,max2)
+        return func1('fathersday',request)
 
 def girlfriend(request):
         global a

@@ -15,7 +15,6 @@ body {
 }
 
 #single{
-  padding-top: 58px;
   background-color: white;
   display: grid;
   font-family: 'lato';
@@ -760,7 +759,7 @@ cursor: pointer;
 .whole__container{
   display: flex;
   column-gap: auto;
-  align-items: baseline;
+  align-items: flex-start;
   margin-top: 75px;
   background-color:white;
   justify-content: space-around;
@@ -1031,6 +1030,19 @@ cursor: pointer;
   }
   .burger{
     display:flex;
+  }
+  .sidebar.close .item__layout2{
+    flex-basis: 100%;
+  }
+  .item__layout2{
+    z-index: 100;
+    flex-basis: 0%;
+  }
+  .sidebar ~ .item__layout2 #single{
+    display: none;
+  }
+  .sidebar.close ~ .item__layout2 #single{
+    display: grid;
   }
   .sidebar.close .item__layout{
     flex-basis: 100%;
