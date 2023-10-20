@@ -8,7 +8,9 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'contact.css' %}">
 </head>
 
@@ -39,33 +41,35 @@
       const openMenu = document.querySelector('.openMenu');
       const menu_items = document.querySelectorAll('nav .mainMenu li a');
 
-      openMenu.addEventListener('click',show);
-      closeMenu.addEventListener('click',close);
+      openMenu.addEventListener('click', show);
+      closeMenu.addEventListener('click', close);
 
       // close menu when you click on a menu item 
       menu_items.forEach(item => {
-          item.addEventListener('click',function(){
-              close();
-          })
+        item.addEventListener('click', function () {
+          close();
+        })
       })
 
-      function show(){
-          mainMenu.style.top = '0';
+      function show() {
+        mainMenu.style.top = '0';
       }
-      function close(){
-          mainMenu.style.top = '-100%';
+      function close() {
+        mainMenu.style.top = '-100%';
       }
     </script>
   </section>
-  
+
 
   <section class="search__drop" style="position: relative;">
-    <hr style="z-index: 10; position: absolute;border: none;height: 9px;background-color: #221f45;width: 100%;display: flex;align-items: center;justify-content: center;">
+    <hr
+      style="z-index: 10; position: absolute;border: none;height: 9px;background-color: #221f45;width: 100%;display: flex;align-items: center;justify-content: center;">
     <div class="drop__containers" style="z-index: 15;background-color: #FBE8DE;display: flex;">
 
-      <a href="/home/" style="text-decoration: none;color: #221f45;align-items: center;display: flex;flex-direction: column;justify-content: center;row-gap: 10px;">
+      <a href="/home/"
+        style="text-decoration: none;color: #221f45;align-items: center;display: flex;flex-direction: column;justify-content: center;row-gap: 10px;">
         <i class="fa-solid fa-house"></i>
-        <button class="btn-5" style="font-family: 'Poppins';">WHATS NEW</button>
+        <button class="btn-5">WHATS NEW</button>
       </a>
 
       <div class="dropdown" onmouseover="showRecipientOptions()" onmouseout="hideRecipientOptions()">
@@ -136,15 +140,15 @@
           <a href="/submitaproduct/">Submit a Product</a>
         </div>
       </div>
-      
+
     </div>
-   </section>
-    <main>
+  </section>
+  <main>
     <div class="main-contactussec">
-        <div class="about">
+      <div class="about">
         <img class="im" src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png">
         <div class="about-content">
-            <p>
+          <p>
             <b>ThisIsWhyImBroke</b> is a free online magazine run by a bunch of
             geeks who partake in way too much online window shopping. <br><br>
             Our philosophy is simple: we only want to display the coolest stuff
@@ -157,71 +161,75 @@
             featuring an item. Our staff regularly lists products that we receive
             absolutely no compensation for.
             <b>We do not carry any of the products listed on the site, nor do we
-                directly sell anything</b>.
-            </p>
+              directly sell anything</b>.
+          </p>
         </div>
-        </div>
-        <div class="contact">
+      </div>
+      <div class="contact">
         <div class="contactcontainer">
-            <div class="leftconcontainer">
-              <img src="{% static 'images/contact_us_icon2.png' %}" alt="" >
-              <form action="submit_form.php" method="post">
-                  <label for="topic">What are you contacting us about?*</label>
-                  <select id="topic" name="topic" required>
-                  <option value="" disabled selected>General questions/inquiry</option>
-                  <option value="issue">Report an issue/bug</option>
-                  <option value="product">Suggestion/Critique</option>
-                  <option value="product">Advertising</option>
-                  </select>
-                  
-                  <label for="name">Your name*</label>
-                  <input type="text" id="name" name="name" required class="con-text">
-                  
-                  <label for="email">Email Address*</label>
-                  <input type="email" id="email" name="email" required class="con-email">
-                  
-                  <label for="message">Your message*</label>
-                  <textarea id="message" name="message" rows="4" required class="con-textarea"></textarea>
-                  
-                  
-                  
-                  <input type="submit" value="SUBMIT" class="con-submit">
-              </form>
-            </div>
-            <div class="seperator">
-              <div class="sepborder"></div>
-            </div>
-            <div class="rightconcontainer">
-              <img class="cont__image" src="{% static 'images/undraw_Contact_us_re_4qqt (1).png' %}">
-            </div>
+          <div class="leftconcontainer">
+            <img src="{% static 'images/contact_us_icon2.png' %}" alt="">
+            <form action="submit_form.php" method="post">
+              <label for="topic">What are you contacting us about?*</label>
+              <select id="topic" name="topic" required>
+                <option value="" disabled selected>General questions/inquiry</option>
+                <option value="issue">Report an issue/bug</option>
+                <option value="product">Suggestion/Critique</option>
+                <option value="product">Advertising</option>
+              </select>
+
+              <label for="name">Your name*</label>
+              <input type="text" id="name" name="name" required class="con-text">
+
+              <label for="email">Email Address*</label>
+              <input type="email" id="email" name="email" required class="con-email">
+
+              <label for="message">Your message*</label>
+              <textarea id="message" name="message" rows="4" required class="con-textarea"></textarea>
+
+
+
+              <input type="submit" value="SUBMIT" class="con-submit">
+            </form>
+          </div>
+          <div class="seperator">
+            <div class="sepborder"></div>
+          </div>
+          <div class="rightconcontainer">
+            <img class="cont__image" src="{% static 'images/undraw_Contact_us_re_4qqt (1).png' %}">
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-    
+
     </div>
     <hr class="footer-separator">
 
     <footer>
-    <div class="footer-content">
-      <div class="footer-top">
-        <div class="footer-text">
-          <p>
-            <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png" alt="This Is Why Im Broke logo" class="footer-logo">
-            THIS IS WHY IM BROKE
-          </p>
-          <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
-          <div class="footer-links">
-            <a href="/contactus">Contact Us</a>
+      <div class="footer-content">
+        <div class="footer-top">
+          <div class="footer-text">
+            <p>
+              <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png"
+                alt="This Is Why Im Broke logo" class="footer-logo">
+              THIS IS WHY IM BROKE
+            </p>
+            <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
+            <div class="footer-links">
+              <a href="/contactus">Contact Us</a>
+            </div>
           </div>
         </div>
+        <div class="footer-disclaimer">
+          <p>
+            ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase
+            through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a
+              href=#>Learn more about how our site works.</a>
+          </p>
+        </div>
       </div>
-      <div class="footer-disclaimer">
-        <p>
-          ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn more about how our site works.</a>
-        </p>
-      </div>
-    </div>
-   </footer>
-</main>
+    </footer>
+  </main>
 </body>
+
 </html>
