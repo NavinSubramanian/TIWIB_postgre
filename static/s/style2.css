@@ -1259,7 +1259,7 @@ h2 {
     position: fixed;
     display: flex;
     overflow: hidden;
-    top: 0px;
+    top: -20px;
     right: 0px;
     left: 0px;
     z-index: 9999;
@@ -1286,6 +1286,7 @@ h2 {
   }
   .openMenu{
     padding: 18px;
+    margin-right: 20px;
     border-radius: 8px;
     background-color: rgb(251 251 251 / 60%);
     /* position: sticky;

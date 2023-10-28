@@ -27,7 +27,7 @@ body {
 .single-content{
   background-color: rgba(255, 255, 255, 0.808);
   justify-content: center;
-  display: flex;
+  display: grid;
   grid-template-columns: 40% 60%; 
   height:100%;
   font-family: 'Poppins';
@@ -151,24 +151,12 @@ cursor: pointer;
 
 @media (max-width: 700px){
   #single{
-    grid-template-columns: 550px;
-    grid-auto-rows: 550px;
-    place-items: center;
-  }
-  .inner-two>div{
-    margin-top: 10px;
-  }
-  .single-content{
-    flex-direction: column;
-    width: 80%;
-  }
-  .img1{
-    width: 70%;
-  }
-  /* #single{
     grid-template-columns: 450px;
     grid-auto-rows: 550px;
-  } */
+  }
+  .img1{
+    height: 40%;
+  }
   .top{
     top: 80px;
   }
@@ -178,21 +166,11 @@ cursor: pointer;
   .inner-two>p{
     font-size: 14px;
   }
-}
-@media (max-width: 550px){
-  #single{
-    grid-template-columns: 480px;
-    grid-auto-rows: 550px;
-    place-items: center;
+  .single-content{
+    height: 75%;
   }
 }
-@media (max-width: 450px){
-  #single{
-    grid-template-columns: 400px;
-    grid-auto-rows: 550px;
-    place-items: center;
-  }
-}
+
 
 .main__logo {
   justify-content: center;
@@ -648,7 +626,7 @@ cursor: pointer;
   flex-direction: column;
   margin: auto;
   text-align: left;
-  width: 100vw;
+  width: 90vw;
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
