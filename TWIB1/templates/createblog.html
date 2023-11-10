@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'createblog.css' %}">
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&display=swap"
+    rel="stylesheet"
+    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" 
+    />
     <title>Document</title>
 </head>
 <body>
@@ -16,16 +24,19 @@
     <!-- Create blog form -->
 
     <section class="blog__wrapper">
-        <form action="">
-            <label for="">Title : </label><br>
-            <input type="text"><br>
-            <label for="">Description : </label><br>
-            <textarea name="" id="" cols="30" rows="30" style="resize: none;"></textarea><br>
-            <label for="">Image URL : </label><br>
-            <input type="text"><br>
-            <label for="">Choose CSV file : </label><br>
-            <input type="file" name="csvFile" accept=".csv"> <br>
-            <button type="submit">Submit</button>
+        <form action="" style="position: relative;">
+            <label for="title">Title : </label><br>
+            <input id="title" type="text"><br>
+            <label for="desc">Description : </label><br>
+            <textarea name="" id="desc" rows="20" style="resize: none;"></textarea><br>
+            <label for="imgurl">Image URL : </label><br>
+            <input type="text" id="imgurl"><br>
+            <label for="csv">
+                <span>Choose CSV file : </span>
+                <img src="{% static 'images/attach.png' %}" style="height: 20px;width: 20px;cursor: pointer;" />
+            </label><br>
+            <input id="csv" type="file" name="csvFile" accept=".csv" style="display: none;"> <br>
+            <button type="submit" class="button-56">Submit</button>
         </form>
     </section>
 </body>
