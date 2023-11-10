@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'createblog.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <section class="landing__page">
+        <div class="main__logo">
+          <a href="/home/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></img></a> 
+        </div>
+    </section>
+
+    <!-- Create blog form -->
+
+    <section class="blog__wrapper">
+        <form action="">
+            <label for="">Title : </label><br>
+            <input type="text"><br>
+            <label for="">Description : </label><br>
+            <textarea name="" id="" cols="30" rows="30" style="resize: none;"></textarea><br>
+            <label for="">Image URL : </label><br>
+            <input type="text"><br>
+            <label for="">Choose CSV file : </label><br>
+            <input type="file" name="csvFile" accept=".csv"> <br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>
