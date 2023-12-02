@@ -30,6 +30,7 @@ urlpatterns=[
     path('travel/',views.travel),
     path('food/',views.food),
     path('allgiftsguide/',views.allgiftsguide),
+    path('allgiftsguide/<str:genre>/',views.creation),
     path('submitaproduct/',views.submitaproduct),
     path('meme/',views.meme),
     path('stupendous/',views.stupendous),
@@ -53,4 +54,6 @@ urlpatterns=[
     path('<str:genre>/savedproducts',views.savedproducts),
     path('unsavedproducts',views.unsavedproducts),
     path('<str:genre>/unsavedproducts',views.unsavedproducts),
+    path('createblog/', views.create_blog, name='createblog'),
+    # path('success/', views.success_page, name='success_page'),
 ]

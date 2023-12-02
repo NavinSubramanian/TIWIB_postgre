@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,18 +25,21 @@
     <!-- Create blog form -->
 
     <section class="blog__wrapper">
-        <form action="" style="position: relative;">
+        <form method="POST" enctype="multipart/form-data" style="position: relative;">
+            {% csrf_token %}
             <label for="title">Title : </label><br>
-            <input id="title" type="text"><br>
+            <input id="title" type="text" name="title"><br>
+            <label for="blogurl">Blog URL : </label><br>
+            <input id="blogurl" type="text" name="blogurl"><br>
             <label for="desc">Description : </label><br>
-            <textarea name="" id="desc" rows="20" style="resize: none;"></textarea><br>
+            <textarea name="desc" id="desc" rows="20" style="resize: none;"></textarea><br>
             <label for="imgurl">Image URL : </label><br>
-            <input type="text" id="imgurl"><br>
-            <label for="csv">
+            <input type="text" id="imgurl" name="imgurl"><br>
+            <!-- <label for="csv">
                 <span>Choose CSV file : </span>
                 <img src="{% static 'images/attach.png' %}" style="height: 20px;width: 20px;cursor: pointer;" />
-            </label><br>
-            <input id="csv" type="file" name="csvFile" accept=".csv" style="display: none;"> <br>
+            </label><br> -->
+            {{ form.as_p }}
             <button type="submit" class="button-56">Submit</button>
         </form>
     </section>

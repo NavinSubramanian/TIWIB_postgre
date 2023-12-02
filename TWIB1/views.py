@@ -1,8 +1,10 @@
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import *
 from django.db.models import Q
+from .forms import CSVImportForm
+import csv
 
 loggedin=False
 b='index1.html'
@@ -11,6 +13,47 @@ users=''
 userid=''
 max1=0
 max2=300000
+
+
+def create_blog(request):
+    if request.method == 'POST':
+        title=request.POST.get('title')
+        blogurl=request.POST.get('blogurl')
+        desc=request.POST.get('desc')
+        img=request.POST.get('imgurl')
+        form = CSVImportForm(request.POST, request.FILES)
+        if form.is_valid():
+                csv_file = request.FILES['csv_file'].read().decode('utf-8').splitlines()
+                csv_reader = csv.DictReader(csv_file)
+                Webpage.objects.create(
+                        name=title,
+                        type=blogurl,
+                        photo=img,
+                        description=desc
+                )
+                # creation()
+                for row in csv_reader:
+                        Content.objects.create(
+                                name=row['title'],
+                                type=blogurl,
+                                pic=row['img_link'],
+                                des=row['description'],
+                                rate=row['price'],
+                                link=row['product_link']
+                        )
+    else:
+        form = CSVImportForm()
+
+    return render(request, 'createblog.html', {'form': form})
+
+def creation(request,genre):
+        global a
+        al = Webpage.objects.filter(type=genre)
+        a=al
+        for i in al.values():
+                title = i["type"]
+        return func1(title,request)
+
 def check(request,genre=a):
     n1=request.POST['user']
     n2=request.POST['password']
@@ -100,7 +143,8 @@ def func1(para,b):
         a=para
         option=Content.objects.all()
         option1=Webpage.objects.filter(type=para).values()
-        option2=Content.objects.filter(Q(type__contains=para)|Q(rate__gte=max1,rate__lte=max2)).values()
+        option2=Content.objects.filter(type=para).values()
+        # option2=Content.objects.filter(Q(type__contains=para)|Q(rate__gte=max1,rate__lte=max2)).values()
         return render(b,'men4.html',{'values':option1,'value':option2,'val':option,'loggedin':loggedin,'max1':max1,'max2':max2})
 
 def func2(para1,para,b,max1,max2):
@@ -341,7 +385,9 @@ def food(request):
         return func('food',request,max1,max2)
 
 def allgiftsguide(request):
-        return render(request,'guides.html')
+        mydata = Webpage.objects.all().values()
+        context={'mydata':mydata}  
+        return render(request,'guides.html',context)
 
 
 def submitaproduct(request):

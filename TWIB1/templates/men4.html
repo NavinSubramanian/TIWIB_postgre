@@ -115,8 +115,8 @@
   </section>
   
   <section class="whole__container">
-    <button class="burger"><i class='bx bx-menu'></i>    </button>
-    <div class="sidebar close">
+    <button class="burger" style="z-index: 9999;"><i class='bx bx-menu'></i>    </button>
+    <div class="sidebar close" style="min-height: 120vh;">
         <ul class="nav-links">
           <div class="logo-details">
             <i class='bx bx-filter'></i>
@@ -304,7 +304,9 @@
                   <p>{{op.des}}</p>
                   <div>
                     <h1>$ {{op.rate}}</h1>
-                    <button><a href="{{op.link}}" style="text-decoration: none; color:white;">Check It out</a></button>
+                    <a href="{{op.link}}" target="_blank" style="text-decoration: none; color:white;">
+                      <button class="item-check">Check It out</button>
+                    </a>
                   </div>
                 </div>
               </div> 

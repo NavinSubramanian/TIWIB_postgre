@@ -155,13 +155,15 @@
     </div>
     <hr class="serp">
     <div class="guide-container">
-<div class="flex-item">
-        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/938_thumbmail/meme-gifts.jpg">
-          
-          <h1 class="cat-body">55 Viral Meme Gifts That Are Guaranteed To Make You Laugh Your Butt Off</h1>
-
-      </div>      
-      <div class="flex-item">
+      {% for op in mydata %}
+        {% if op.type != "men" and op.type != "fathersday" %}
+        <div class="flex-item">
+          <img class="cat1" src="{{op.photo}}">
+          <a href="{{op.type}}/" style="color: black;text-decoration: none;"><h1 class="cat-body">{{op.name}}</h1></a>
+        </div>
+        {% endif %}
+      {% endfor %}
+      <!-- <div class="flex-item">
         <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/937_thumbmail/gifts-for-single-moms.jpg">
           <h1 class=cat-body>55 Stupendous Gifts For Single Moms Who Deserve Something Special</h1>
       </div>  
@@ -180,7 +182,7 @@
        <div class="flex-item">
         <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/934_thumbmail/funny-personalized-gifts.jpg">
           <h1 class="cat-body">28 Ridiculously Funny Personalized Gifts Perfect For Anyone With A Silly Sense Of Humor</h1>
-      </div> 
+      </div>  -->
       
     </div>
     </div> 

@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@300&family=Lato:wght@300;500;700&family=Oswald:wght@500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@200;300&family=Lato:wght@300;500;700&family=Oswald:wght@500&display=swap"
     rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -132,7 +132,7 @@
   </section>
   
   <section class="whole__container">
-    <button class="burger"><i class='bx bx-menu'></i>    </button>
+    <button class="burger" style="z-index: 9999;"><i class='bx bx-menu'></i>    </button>
     <div class="sidebar close">
         <ul class="nav-links">
           <div class="logo-details">
@@ -313,12 +313,14 @@
       <div class="flex-item">
         <a href="#" class="item-name">{{op.name}}</a>
         <img class="item1" src="{{op.pic}}">
-               {% if loggedin %}
-        <form id='formId' method="post" action="savedproducts">
-          {%csrf_token%}
-          <button type='submit' class="savebtn" value="{{op.id}}" name="saved"> SAVE</button>
-        </form>
-        {%endif %}
+          {% if loggedin %}
+          <form id='formId' method="post" action="savedproducts">
+            {%csrf_token%}
+            <button type='submit' class="savebtn" value="{{op.id}}" name="saved"> SAVE</button>
+          </form>
+          {% else %}
+          <h5 class="logintosave" style="font-family: 'Plus jakarta sans';font-weight: 400;font-size: small;text-align: center;color: #221f45;transition: 1s;"><i>(Login to save)</i></h5>
+          {% endif %}
         <p class="item-body">{{op.des}}</p>
         <div class="bottom">
           <p class="item-stat">₹ {{op.rate}}</p>
