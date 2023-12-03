@@ -162,7 +162,7 @@ def func2(para1,para,b,max1,max2):
         return render(b,'men3.html',{'values':option1,'value':option2,'v':para,'val':option,'loggedin':loggedin,'max1':max1,'max2':max2})
 
 def index(request):
-        option=Content.objects.all()
+        option=Content.objects.all().values().order_by("id").reverse()[:100]
         option2=Content.objects.filter(type__contains='home').values().order_by("id").reverse()
         global b
         print(b)
@@ -253,16 +253,16 @@ def girlfriend(request):
 def mothersday(request):
         global a
         a='mothersday'
-        return func('mothersday',request,max1,max2)
+        return func1('mothersday',request)
 
 
 
 def valentinesday(request):
         global a
-        a='valentine'
+        a='valentinesday'
         option1=Webpage.objects.filter(type='valentine').values()
         option2=Content.objects.filter(type__contains='valentine').values()
-        return render(request,'men3.html',{'values':option1,'value':option2})
+        return func1('valentinesday',request)
 
 def aniversary(request):
         global a
