@@ -127,11 +127,11 @@
             <form action="search" class="search-bar-2" method="post">
               {% csrf_token %}
               <input type="text" placeholder="search here" name="query" list="val" value="{{v}}" class="search-text">
-               <datalist id="val">
+               <!-- <datalist id="val">
                 {%for i in val%}
                 <option value="{{i.name}}"></option>
                 {% endfor %}
-              </datalist>
+              </datalist> -->
               <button type="submit" class="bar-button-2"><i class="fa fa-search"></i></button>
             </form>
           </div>
@@ -241,8 +241,6 @@
                 </a>
             </li>
           <li>
-            <hr style="margin: 5px;">
-            </hr>
             <!-- <div class="filter__container">
               <div class="price range">
                 <header>

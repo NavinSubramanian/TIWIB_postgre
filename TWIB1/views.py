@@ -70,13 +70,15 @@ def check(request,genre=a):
             return render(request,'afterlogin.html',{'userid':i})
     return render(request,'index1.html')
 
+
+
 def logout(request,genre=a):
         global users,b,userid,loggedin
         users=''
         b='index1.html'
         userid=''
         loggedin=False
-        return render(request,'index1.html')
+        return redirect('/home')
 
 def logins(request,genre=a):
         global userid
@@ -153,13 +155,14 @@ def func2(para1,para,b,max1,max2):
         print("para1",para1)
         global loggedin
         option=Content.objects.all()
-        if para=='':
-                print('yes')
-                option2=Content.objects.filter((Q(type__contains=para1))&Q(rate__range=(max1,max2))).values()
+        if para == None:
+                option2=Content.objects.filter(Q(rate__range=(max1,max2))).values().order_by("rate")
+                print(option2)
         else:
-                option2=Content.objects.filter((Q(name__contains=para)|Q(type__contains=para))&Q(rate__range=(max1,max2))).values()
+                # option2=Content.objects.filter((Q(name__contains=para)|Q(type__contains=para))|Q(rate__range=(max1,max2))).values()
+                option2 = Content.objects.filter(name__icontains=para).values()
         option1=Webpage.objects.filter(type=para1).values()
-        return render(b,'men3.html',{'values':option1,'value':option2,'v':para,'val':option,'loggedin':loggedin,'max1':max1,'max2':max2})
+        return render(b,'men3.html',{'values':option1,'value':option2,'v':para,'val':option,'loggedin':loggedin,'max1':max1,'max2':max2,'link':para1})
 
 def index(request):
         option=Content.objects.all().values().order_by("id").reverse()[:100]
@@ -183,7 +186,8 @@ def men(request):
         a='men'
         option1=Webpage.objects.filter(type='men').values()
         option2=Content.objects.filter(Q(type='men') | Q(type='dad')|Q(type='teenboys')|Q(type='boyfriend')|Q(type='husband')).values()
-        return render(request,'men3.html',{'values':option1,'value':option2,'val':option,'loggedin':loggedin})
+        para1 = "men"
+        return render(request,'men3.html',{'values':option1,'value':option2,'val':option,'loggedin':loggedin,'link':para1})
 
 
 def women(request):

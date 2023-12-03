@@ -464,6 +464,7 @@ body {
 .flex-item {
   position: relative;
   display: inline-block;
+  height: auto;
 }
 
 .flex-item img{

@@ -9,7 +9,9 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500&family=Plus+Jakarta+Sans:wght@200;300&family=Lato:wght@300;500;700&family=Oswald:wght@500&display=swap"
     rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'men.css' %}">
 </head>
 
@@ -111,12 +113,12 @@
         </div>
       </div>
     </div>
-    
-      
+
+
     {% endfor %}
   </section>
 
-  <section class="search__filter">
+  <!-- <section class="search__filter">
     <div class="search__container">
       <form action="search" class="search-bar" method="post">
         {% csrf_token %}
@@ -129,141 +131,146 @@
         <button type="submit" class="bar-button-1"><i class="fa fa-search"></i></button>
       </form>
     </div>
-  </section>
-  
+  </section> -->
+
   <section class="whole__container">
-    <button class="burger" style="z-index: 9999;"><i class='bx bx-menu'></i>    </button>
+    <button class="burger" style="z-index: 9999;"><i class='bx bx-menu'></i> </button>
     <div class="sidebar close">
-        <ul class="nav-links">
-          <div class="logo-details">
-            <i class='bx bx-filter'></i>
-            <span class="logo_name">Filter</span>
+      <ul class="nav-links">
+        <div class="logo-details">
+          <i class='bx bx-filter'></i>
+          <span class="logo_name">Filter</span>
+        </div>
+
+        <div class="search__container">
+          <form action="search" class="search-bar-2" method="post">
+            {% csrf_token %}
+            <input type="text" placeholder="search here" name="query" list="val" value="{{v}}" class="search-text">
+             <!-- <datalist id="val">
+              {%for i in val%}
+              <option value="{{i.name}}"></option>
+              {% endfor %}
+            </datalist> -->
+            <button type="submit" class="bar-button-2"><i class="fa fa-search"></i></button>
+          </form>
+        </div>
+
+        <li>
+          <a href="#">
+            <i class='bx bx-grid-alt'></i>
+            <span class="link_name">Accessories</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Accessories</a></li>
+            <li><a href="#">Bags</a></li>
+            <li><a href="#">Belts</a></li>
+            <li><a href="#">Cosmetics</a></li>
+            <li><a href="#">Hats</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class='bx bx-collection'></i>
+              <span class="link_name">Franchise</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
           </div>
-          
-          <div class="search__container">
-            <form action="search" class="search-bar-2" method="post">
-              {% csrf_token %}
-              <input type="text" placeholder="search here" name="query" list="val" value="{{v}}" class="search-text">
-               <datalist id="val">
-                {%for i in val%}
-                <option value="{{i.name}}"></option>
-                {% endfor %}
-              </datalist>
-              <button type="submit" class="bar-button-2"><i class="fa fa-search"></i></button>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Franchise</a></li>
+            <li><a href="/allgiftsguide/anime/">Anime</a></li>
+            <li><a href="#">Marvel</a></li>
+            <li><a href="#">DC</a></li>
+            <li><a href="/allgiftsguide/starwars/">StarWars</a></li>
+            <li><a href="#">Lego</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class='bx bx-user'></i>
+              <span class="link_name">Gift by Reciptent</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
           </div>
-            <li>
-                <a href="#">
-                    <i class='bx bx-grid-alt'></i>
-                    <span class="link_name">Accessories</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Accessories</a></li>
-                    <li><a href="#">Bags</a></li>
-                    <li><a href="#">Belts</a></li>
-                    <li><a href="#">Cosmetics</a></li>
-                    <li><a href="#">Hats</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-collection'></i>
-                        <span class="link_name">Franchise</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Franchise</a></li>
-                    <li><a href="/allgiftsguide/anime/">Anime</a></li>
-                    <li><a href="#">Marvel</a></li>
-                    <li><a href="#">DC</a></li>
-                    <li><a href="/allgiftsguide/starwars/">StarWars</a></li>
-                    <li><a href="#">Lego</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-user'></i>
-                        <span class="link_name">Gift by Reciptent</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Gift By Reciptent</a></li>
-                    <li><a href="/men/">Men</a></li>
-                    <li><a href="/women/">Women</a></li>
-                    <li><a href="/dad/">Dad</a></li>
-                    <li><a href="/mom/">Mom</a></li>
-                    <li><a href="/kids/">Kids</a></li>
-                    <li><a href="/teenboys/">Teen Boys</a></li>
-                    <li><a href="/teengirls/">Teen Girls</a></li>
-                    <li><a href="/boyfriend/">Boyfriend</a></li>
-                    <li><a href="/girlfriend/">Girlfriend</a></li>
-                </ul>
-            </li>
-            <li>
-                <div class="iocn-link">
-                    <a href="#">
-                        <i class='bx bx-cart'></i>
-                        <span class="link_name">Gifts By Ocassion</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <ul class="sub-menu">
-                    <li><a class="link_name" href="#">Gifts By Ocassion</a></li>
-                    <li><a href="/fathersday/">Father's Day</a></li>
-                    <li><a href="/mothersday/">Mother's Day</a></li>
-                    <li><a href="/valentinesday/">Valentine's Day</a></li>
-                    <li><a href="/anniversary/">Anniversary</a></li>
-                    <li><a href="/birthdaygifts/">Birthday Gifts</a></li>
-                    <li><a href="/graduation/">Graduation</a></li>
-                    <li><a href="/engagement/">Engagement</a></li>
-                    <li><a href="/wedding/">Wedding</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-category'></i>
-                    <span class="link_name">Gifts By Category</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">Gifts By Category</a></li>
-                    <li><a href="#">Funny</a></li>
-                    <li><a href="#">Gag Gifts</a></li>
-                    <li><a href="#">Geek</a></li>
-                    <li><a href="#">Gamers</a></li>
-                    <li><a href="#">Food</a></li>
-                    <li><a href="#">Travel</a></li>
-                    <li><a href="#">Movies</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class='bx bx-category-alt'></i>
-                    <span class="link_name">More Categories</span>
-                </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="#">More Categories</a></li>
-                    <li><a href="/allgiftsguide/">All Gift Guides</a></li>
-                    <li><a href="/contactus/">Contact Us</a></li>
-                    <!-- <li><a href="/submitaproduct/">Contact Us</a></li> -->
-                </ul>
-            </li>
-            <li>
-                <a href="/home/">
-                    <i class='bx bx-home'></i>
-                    <span class="link_name">Home</span>
-                </a>
-            </li>
-          <li>
-            <hr style="margin: 5px;">
-            </hr>
-            <div class="filter__container">
-                {%csrf_token%}
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Gift By Reciptent</a></li>
+            <li><a href="/men/">Men</a></li>
+            <li><a href="/women/">Women</a></li>
+            <li><a href="/dad/">Dad</a></li>
+            <li><a href="/mom/">Mom</a></li>
+            <li><a href="/kids/">Kids</a></li>
+            <li><a href="/teenboys/">Teen Boys</a></li>
+            <li><a href="/teengirls/">Teen Girls</a></li>
+            <li><a href="/boyfriend/">Boyfriend</a></li>
+            <li><a href="/girlfriend/">Girlfriend</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="iocn-link">
+            <a href="#">
+              <i class='bx bx-cart'></i>
+              <span class="link_name">Gifts By Ocassion</span>
+            </a>
+            <i class='bx bxs-chevron-down arrow'></i>
+          </div>
+          <ul class="sub-menu">
+            <li><a class="link_name" href="#">Gifts By Ocassion</a></li>
+            <li><a href="/fathersday/">Father's Day</a></li>
+            <li><a href="/mothersday/">Mother's Day</a></li>
+            <li><a href="/valentinesday/">Valentine's Day</a></li>
+            <li><a href="/anniversary/">Anniversary</a></li>
+            <li><a href="/birthdaygifts/">Birthday Gifts</a></li>
+            <li><a href="/graduation/">Graduation</a></li>
+            <li><a href="/engagement/">Engagement</a></li>
+            <li><a href="/wedding/">Wedding</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-category'></i>
+            <span class="link_name">Gifts By Category</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">Gifts By Category</a></li>
+            <li><a href="#">Funny</a></li>
+            <li><a href="#">Gag Gifts</a></li>
+            <li><a href="#">Geek</a></li>
+            <li><a href="#">Gamers</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Movies</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-category-alt'></i>
+            <span class="link_name">More Categories</span>
+          </a>
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="#">More Categories</a></li>
+            <li><a href="/allgiftsguide/">All Gift Guides</a></li>
+            <li><a href="/contactus/">Contact Us</a></li>
+            <!-- <li><a href="/submitaproduct/">Contact Us</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="/home/">
+            <i class='bx bx-home'></i>
+            <span class="link_name">Home</span>
+          </a>
+        </li>
+        <li>
+          {% if link == "men" %}
+          <hr style="margin: 5px;">
+          </hr>
+          <div class="filter__container">
+            <form action="search" method="post">
+
+              {%csrf_token%}
               <div class="price range">
                 <header>
-                    <h2>Price Range</h2>
+                  <h2>Price Range</h2>
                 </header>
                 <div class="price-input">
                   <div class="field">
@@ -274,63 +281,67 @@
                   <div class="field">
                     <span>Max</span>
                     <input type="number" name="max2" class="input-max inpu" value="{{max2}}"><br>
-                    <button class="apply__filter">Apply Filter</button>
                   </div>
                 </div>
-              </div>
-              </form>
-            </div>
-          </li>
-          <li>
-          </li>
-        </ul>
-    </div>
+                </div>
+                <button class="apply__filter" style="border-radius: 30px;cursor: pointer;transition: 1s;">Apply Filter</button>
+            </form>
+          </div>
+          {% endif %}
+        </div>
+      </li>
+    </ul>
     <script>
-        let arrow = document.querySelectorAll(".arrow");
-        for (var i = 0; i < arrow.length; i++) {
-            arrow[i].addEventListener("click", (e) => {
-                let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-                arrowParent.classList.toggle("showMenu");
-            });
-        }
-  // let sidebar = document.querySelector(".sidebar");
-  // let sidebarBtn = document.querySelector(".bx-menu");
-  // console.log(sidebarBtn);
-  // sidebarBtn.addEventListener("click", ()=>{
-  //   sidebar.classList.toggle("close");
-  // });
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e) => {
+          let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+          arrowParent.classList.toggle("showMenu");
+        });
+      }
+      // let sidebar = document.querySelector(".sidebar");
+      // let sidebarBtn = document.querySelector(".bx-menu");
+      // console.log(sidebarBtn);
+      // sidebarBtn.addEventListener("click", ()=>{
+      //   sidebar.classList.toggle("close");
+      // });
     </script>
     <script>
       let sidebar = document.querySelector(".sidebar");
       let sidebarBtn = document.querySelector(".bx-menu");
       console.log(sidebarBtn);
-      sidebarBtn.addEventListener("click", ()=>{
+      sidebarBtn.addEventListener("click", () => {
         sidebar.classList.toggle("close");
       });
     </script>
     <div class="item__layout">
+      {% if value %}
       {% for op in value %}
       <div class="flex-item">
-        <a href="#" class="item-name">{{op.name}}</a>
+        <a href="#" class="item-name">{{op.name | truncatechars:35 }}</a>
         <img class="item1" src="{{op.pic}}">
-          {% if loggedin %}
-          <form id='formId' method="post" action="savedproducts">
-            {%csrf_token%}
-            <button type='submit' class="savebtn" value="{{op.id}}" name="saved"> SAVE</button>
-          </form>
-          {% else %}
-          <h5 class="logintosave" style="font-family: 'Plus jakarta sans';font-weight: 400;font-size: small;text-align: center;color: #221f45;transition: 1s;"><i>(Login to save)</i></h5>
-          {% endif %}
-        <p class="item-body">{{op.des}}</p>
-        <div class="bottom">
+        {% if loggedin %}
+        <form id='formId' method="post" action="savedproducts">
+          {%csrf_token%}
+          <button type='submit' class="savebtn" value="{{op.id}}" name="saved"> SAVE</button>
+        </form>
+        {% else %}
+        <h5 class="logintosave"
+          style="font-family: 'Plus jakarta sans';font-weight: 400;font-size: small;text-align: center;color: #221f45;transition: 1s;">
+          <i>(Login to save)</i></h5>
+        {% endif %}
+        <p class="item-body">{{op.des | truncatechars:160}}</p>
+        <div class="bottom" style="display: flex;align-items: center;">
           <p class="item-stat">₹ {{op.rate}}</p>
-          <a href="{{op.link}}"
-            target="_blank">
+          <a href="{{op.link}}" target="_blank">
             <button class="item-check">CHECK IT OUT</button>
           </a>
         </div>
       </div>
       {% endfor %}
+      {% else %}
+      <h1 style="display: flex;justify-content: center;margin-top: 20px;"><i>No such products present...</i></h1>
+      {% endif %}
     </div>
   </section>
 
@@ -339,8 +350,9 @@
       <div class="footer-top">
         <div class="footer-text">
           <p>
-            <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png" alt="This Is Why Im Broke logo" class="footer-logo">
-            
+            <img src="https://www.thisiswhyimbroke.com/assets/images/cash-in-hand-logo-large.png"
+              alt="This Is Why Im Broke logo" class="footer-logo">
+
             THIS IS WHY IM BROKE
           </p>
           <h4>© 2023 ThisIsWhyImBroke. All rights reserved.</h4>
@@ -352,12 +364,14 @@
       </div>
       <div class="footer-disclaimer">
         <p>
-          ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn more about how our site works.</a>
+          ThisIsWhyImBroke is reader supported, some products displayed may earn us a commission if you purchase through
+          our links. ThisIsWhyImBroke is a participant in the Amazon Services LLC Associates Program.<a href=#>Learn
+            more about how our site works.</a>
         </p>
       </div>
     </div>
-   </footer>
-  
+  </footer>
+
 </body>
 
 </html>

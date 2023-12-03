@@ -487,6 +487,25 @@ cursor: pointer;
   flex-direction: column;
   justify-content: space-between;
 }
+@media only screen and (max-width:575px) {
+  .flex-item{
+    width: 325px !important;
+    height: 395px !important;
+  }
+  .item-check{
+    height: 33px !important;
+    width: 115px !important;
+    font-size: 12px !important;
+  }
+}
+@media only screen and (max-width:480px) {
+  .flex-item{
+    width: 300px !important;
+  }
+  .item-stat{
+    font-size: 14px !important;
+  }
+}
 
 .flex-item img{
   margin-left: 50px;
@@ -894,11 +913,20 @@ cursor: pointer;
 .apply__filter{
   margin: 0 auto;
   position: relative;
-  top: 57px;
-  right: 50px;
-  margin-left: -161px;
   padding: 5px;
   border: none;
+  display: flex;
+  height: 40px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 3px solid white;
+  color: white;
+}
+.apply__filter:hover{
+  color: #221f45;
+  background-color: white;
 }
 .sidebar .nav-links li.showMenu i.arrow{
   transform: rotate(-180deg);

@@ -206,7 +206,7 @@
       -->
       <form action="search" class="search-bar" method="post">
         {% csrf_token %}
-        <input type="text" list='values' placeholder="search here" name="query" style="appearance:none;">
+        <input type="text" list='values' placeholder="search here" id="query" name="query" style="appearance:none;">
         <datalist id="values" style="appearance:none;">
           {% for i in values %}
           <option value="{{i.name}}" style="appearance:none;">
@@ -346,10 +346,10 @@
   <section class="item__layout">
     {% for op in values %}
     <div class="flex-item">
-       <a href="#" class="item-name">{{op.name}}</a>
+       <a href="#" class="item-name">{{op.name | truncatechars:35}}</a>
        <img class="item1" src="{{op.pic}}">
        <!-- <button class="savebtn"> SAVE</button> -->
-       <p class="item-body">{{op.des}}</p>
+       <p class="item-body">{{op.des | truncatechars:160}}</p>
        <p class="item-stat">₹ {{op.rate}}</p>
        <a href="{{op.link}}"
          target="_blank">

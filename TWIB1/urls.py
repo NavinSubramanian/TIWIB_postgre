@@ -49,6 +49,7 @@ urlpatterns=[
     path('<str:genre>/logins',views.logins),
     path('<str:genre>/logout',views.logout),
     path('logout',views.logout),
+    # path('successlogin',views.successlogin),
     path('logins',views.logins),
     path('<str:genre>/alogin/',views.alogins),
     path('<str:genre>/savedproducts',views.savedproducts),
