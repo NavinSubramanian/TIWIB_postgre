@@ -54,6 +54,18 @@ def creation(request,genre):
                 title = i["type"]
         return func1(title,request)
 
+def seperateprd(request,item):
+        it = Content.objects.filter(name=item).values()
+        lis = item.split(" ")
+        option2 = []
+        for i in lis:
+                if len(i) <= 4:
+                        print(i)
+                        continue
+                option2.append(Content.objects.filter(name__icontains=i).values())
+        context={'mainitem':it,'value':option2} 
+        return render(request,'sepitems.html',context)
+
 def check(request,genre=a):
     n1=request.POST['user']
     n2=request.POST['password']
@@ -200,10 +212,10 @@ def women(request):
         return render(request,'men3.html',{'values':option1,'value':option2,'val':option,'loggedin':loggedin})
 
 
-def starwars(request):
-        global a
-        a='starwars'
-        return func('starwars',request,max1,max2)
+# def starwars(request):
+#         global a
+#         a='starwars'
+#         return func('starwars',request,max1,max2)
 def anime(request):
         global a
         a='anime'
@@ -228,7 +240,7 @@ def kids(request):
 def teenboys(request):
         global a
         a='teenboys'  
-        return func('teenboys',request,max1,max2)
+        return func1('teenboys',request)
 
 
 def teengirls(request):

@@ -207,11 +207,11 @@
       <form action="search" class="search-bar" method="post">
         {% csrf_token %}
         <input type="text" list='values' placeholder="search here" id="query" name="query" style="appearance:none;">
-        <datalist id="values" style="appearance:none;">
+        <!-- <datalist id="values" style="appearance:none;">
           {% for i in values %}
           <option value="{{i.name}}" style="appearance:none;">
           {% endfor %}
-        </datalist>
+        </datalist> -->
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>                                                                                  
     </div>
@@ -346,7 +346,7 @@
   <section class="item__layout">
     {% for op in values %}
     <div class="flex-item">
-       <a href="#" class="item-name">{{op.name | truncatechars:35}}</a>
+       <a href="/products/{{op.name}}" class="item-name">{{op.name | truncatechars:35}}</a>
        <img class="item1" src="{{op.pic}}">
        <!-- <button class="savebtn"> SAVE</button> -->
        <p class="item-body">{{op.des | truncatechars:160}}</p>
