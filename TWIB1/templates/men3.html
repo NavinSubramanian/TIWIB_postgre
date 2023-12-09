@@ -317,7 +317,7 @@
       {% if value %}
       {% for op in value %}
       <div class="flex-item">
-        <a href="#" class="item-name">{{op.name | truncatechars:35 }}</a>
+        <a href="/products/{{op.name}}" class="item-name">{{op.name | truncatechars:35 }}</a>
         <img class="item1" src="{{op.pic}}">
         {% if loggedin %}
         <form id='formId' method="post" action="savedproducts">

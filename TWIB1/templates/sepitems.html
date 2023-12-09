@@ -161,11 +161,11 @@
         <button style="margin: 0 auto;" class="main-check"><a href="{{item.link}}" target="_blank" style="text-decoration: none;">Check it out</a></button>
       </div>
     </section>
-    {% endfor %}
     <h1 class="similar-item">Similar Items....</h1>
     <section class="item__layout">
       {% for os in value %}
       {% for op in os %}
+      {% if op.name != item.name %}
       <div class="flex-item">
         <a href="/products/{{op.name}}" class="item-name">{{op.name | truncatechars:35}}</a>
         <img class="item1" src="{{op.pic}}">
@@ -177,8 +177,10 @@
           <button class="item-check">CHECK IT OUT</button>
         </a>
       </div>
+      {% endif %}
       {% endfor %}
       {% endfor %}
+    {% endfor %}
     </section>
     <footer>
     <div class="footer-content">
