@@ -1261,6 +1261,7 @@ h2 {
 .main-left img{
   width: 70%;
   height: 70%;
+  mix-blend-mode: multiply;
 }
 
 .main-right{

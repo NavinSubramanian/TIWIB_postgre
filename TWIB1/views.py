@@ -56,12 +56,12 @@ def creation(request,genre):
         return func1(title,request)
 
 def seperateprd(request,item):
-        it = Content.objects.filter(name=item).values()
-        lis = item.split(" ")
+        it = Content.objects.filter(id=item).values()
+        print("got item!")
+        lis = it[0]['name'].split(" ")
         option2 = []
         for i in lis:
                 if len(i) <= 4:
-                        print(i)
                         continue
                 option2.append(Content.objects.filter(name__icontains=i).values())
         context={'mainitem':it,'value':option2} 

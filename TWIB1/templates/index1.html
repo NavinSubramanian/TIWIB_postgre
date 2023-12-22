@@ -346,7 +346,7 @@
   <section class="item__layout">
     {% for op in values %}
     <div class="flex-item">
-       <a href="/products/{{op.name}}" class="item-name">{{op.name | truncatechars:35}}</a>
+       <a href="/products/{{op.id}}" class="item-name">{{op.name | truncatechars:35}}</a>
        <img class="item1" src="{{op.pic}}">
        <!-- <button class="savebtn"> SAVE</button> -->
        <p class="item-body">{{op.des | truncatechars:160}}</p>

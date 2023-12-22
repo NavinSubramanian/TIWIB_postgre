@@ -38,7 +38,7 @@ urlpatterns=[
     path('knockout/',views.knockout),
     path('neutral/',views.neutral),
     path('<str:genre>/filter',views.filter),
-    path('products/<str:item>',views.seperateprd),
+    path('products/<int:item>',views.seperateprd),
     path('funnyperson/',views.funnyperson),
     path('contactus/',views.contactus),
     path('<str:genre>/check',views.check),

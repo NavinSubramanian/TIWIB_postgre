@@ -164,24 +164,24 @@
     <h1 class="similar-item">Similar Items....</h1>
     <section class="item__layout">
       {% for os in value %}
-      {% for op in os %}
-      {% if op.name != item.name %}
-      <div class="flex-item">
-        <a href="/products/{{op.name}}" class="item-name">{{op.name | truncatechars:35}}</a>
-        <img class="item1" src="{{op.pic}}">
-        <!-- <button class="savebtn"> SAVE</button> -->
-        <p class="item-body">{{op.des | truncatechars:160}}</p>
-        <p class="item-stat">₹ {{op.rate}}</p>
-        <a href="{{op.link}}"
-          target="_blank">
-          <button class="item-check">CHECK IT OUT</button>
-        </a>
-      </div>
-      {% endif %}
+        {% for op in os %}
+          {% if op.name != item.name %}
+          <div class="flex-item">
+            <a href="/products/{{op.id}}" class="item-name">{{op.name | truncatechars:35}}</a>
+            <img class="item1" src="{{op.pic}}">
+            <!-- <button class="savebtn"> SAVE</button> -->
+            <p class="item-body">{{op.des | truncatechars:160}}</p>
+            <p class="item-stat">₹ {{op.rate}}</p>
+            <a href="{{op.link}}"
+              target="_blank">
+              <button class="item-check">CHECK IT OUT</button>
+            </a>
+          </div>
+          {% endif %}
+        {% endfor %}
       {% endfor %}
-      {% endfor %}
-    {% endfor %}
     </section>
+    {% endfor %}
     <footer>
     <div class="footer-content">
       <div class="footer-top">
