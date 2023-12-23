@@ -1,0 +1,21 @@
+{% for op in opt %}
+    {% if forloop.last %}
+    <div class="flex-item" 
+        hx-get="{% url 'homepage' %}?page={{ page|add:1 }}" 
+        hx-trigger="intersect once"
+        hx-target="this" 
+        hx-swap="afterend" >
+    {% else %}
+    <div class="flex-item">
+        {% endif %}
+        <a href="/products/{{op.id}}" class="item-name">{{op.name | truncatechars:35}}</a>
+        <img class="item1" src="{{op.pic}}">
+        <!-- <button class="savebtn"> SAVE</button> -->
+        <p class="item-body">{{op.des | truncatechars:160}}</p>
+        <p class="item-stat">₹ {{op.rate}}</p>
+        <a href="{{op.link}}"
+        target="_blank">
+        <button class="item-check">CHECK IT OUT</button>
+        </a>
+    </div>
+{% endfor %}

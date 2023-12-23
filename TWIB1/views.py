@@ -6,6 +6,9 @@ from django.db.models import Q
 from .forms import CSVImportForm
 import csv
 
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic.list import ListView
+
 loggedin=False
 b='index1.html'
 a=''
@@ -177,12 +180,33 @@ def func2(para1,para,b,max1,max2):
         option1=Webpage.objects.filter(type=para1).values()
         return render(b,'men3.html',{'values':option1,'value':option2,'v':para,'val':option,'loggedin':loggedin,'max1':max1,'max2':max2,'link':para1})
 
+# class HomeView(ListView):
+#         model = Content
+#         paginate_by = 6
+#         context_object_name = 'opt'
+#         template_name = 'index1.html'
+
 def index(request):
-        option=Content.objects.all().values().order_by("id").reverse()[:100]
+        # option=Content.objects.all().values().order_by("id").reverse()[:100]
+
+        option = Content.objects.all().order_by("id").reverse()
+        p = Paginator(option,30)
+        page = int(request.GET.get('page',1))
+        opt = p.page(page)
+
         option2=Content.objects.filter(type__contains='home').values().order_by("id").reverse()
         global b
-        print(b)
-        return render(request,b,{'value':option2,'values':option})
+
+        context = {
+                'value' : option,
+                'opt' : opt,
+                'page' : page,
+        }
+        
+        if request.htmx:
+                return render(request,'components/itemlist.html',context)
+
+        return render(request,'index1.html',context)
 
 def filter(request,genre=a):
         print(request)

@@ -17,14 +17,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
   <section class="landing__page">
-    <div class="main__logo">
-      <a href="/home/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></img></a> 
+    <div class="main__logo" data-aos="fade-down" data-aos-once="false" data-aos-duration="2000">
+      <a href="{% url 'homepage' %}"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></img></a> 
     </div>
     <div class="openMenu"><i class="fa-solid fa-bars"></i></div>
     <ul class="mainMenu">
@@ -152,13 +153,13 @@
     {% for item in mainitem %}
     <section class="mainitem" style="margin-top: 100px;">
       <div class="main-left">
-        <img src="{{item.pic}}" alt="">
+        <img src="{{item.pic}}" data-aos="fade-right" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1000" alt="">
       </div>
       <div class="main-right">
-        <h1>{{item.name}}</h1>
-        <h2>₹ {{item.rate}}</h2>
-        <p>{{item.des}}</p>
-        <button style="margin: 0 auto;" class="main-check"><a href="{{item.link}}" target="_blank" style="text-decoration: none;">Check it out</a></button>
+        <h1 data-aos="fade-in" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1000">{{item.name}}</h1>
+        <h2 data-aos="fade-down" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1300">₹ {{item.rate}}</h2>
+        <p data-aos="fade-in" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1600">{{item.des}}</p>
+        <button style="margin: 0 auto;" class="main-check" data-aos="flip-up" data-aos-once="true" data-aos-duration="2000" data-aos-delay="2500"><a href="{{item.link}}" target="_blank" style="text-decoration: none;">Check it out</a></button>
       </div>
     </section>
     <h1 class="similar-item">Similar Items....</h1>
@@ -204,9 +205,16 @@
     </div>
    </footer>
     
+
+   <!-- Data aos animation -->
+  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
   </main>
-
-
 </body>
 
 </html>

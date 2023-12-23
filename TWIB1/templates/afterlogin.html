@@ -14,7 +14,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Mynerve&family=Poppins:wght@100;500;600&family=Plus+Jakarta+Sans:wght@300&family=Oswald:wght@500&display=swap"
     rel="stylesheet">
-
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
@@ -237,63 +238,9 @@
     </div>
 
   </section>
-  <!--
-  <section class="scroller">
-    <div class="slide__track">
-
-      <div class="slide">
-        <img src="{% static 'images/42-423505_forbes-logo-black-and-white-forbes-logo-white.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/download.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/gizmodo-logo-white.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/huffpost-logo-white.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/msn-logo-white.png' %}">
-      </div>
-
-
-
-      <div class="slide">
-        <img src="{% static 'images/42-423505_forbes-logo-black-and-white-forbes-logo-white.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/download.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/gizmodo-logo-white.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/huffpost-logo-white.png' %}">
-      </div>
-      <div class="slide">
-        <img src="{% static 'images/msn-logo-white.png' %}">
-      </div>
-
-    </div>
-  </section>
-
-  -->
 
   <section class="item__layout">
-    {% for op in value %}
-    <div class="flex-item">
-       <a href="#" class="item-name">{{op.name}}</a>
-       <img class="item1" src="{{op.pic}}">
-       <button class="savebtn"> SAVE</button>
-       <p class="item-body">{{op.des}}</p>
-       <p class="item-stat">{{op.rate}}</p>
-       <a href="{{op.link}}"
-         target="_blank">
-         <button class="item-check">CHECK IT OUT</button>
-       </a>
-     </div>
-     {% endfor %}
+    {% include "./components/itemlist.html" %}
   </section>
 
   <footer>
@@ -317,6 +264,13 @@
       </div>
     </div>
    </footer>
+
+  <!-- Data aos animation -->
+  
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
   <!-- JQuery -->
 

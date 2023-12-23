@@ -14,10 +14,6 @@ body {
 
 }
 
-.fa-solid{
-  color: #221f45;
-}
-
 /* First Section */
 .background {
   height: 344px;
@@ -61,7 +57,7 @@ body {
 
 .main__logo{
   display: flex;
-  height: 300px;
+  height: 30px;
   justify-content:center;
   align-items: center;
 }
@@ -153,8 +149,8 @@ body {
 
 @media (max-width:600px){
   .main__images{
-    max-height:250px;
-    max-width: 150px;
+    max-height:312px;
+    max-width: 233px;
   }
 }
 
@@ -311,12 +307,15 @@ body {
 
 
 /* Dropdown button */
+
+.dropdown .dropbtn i{
+  color: #221f45;
+}
 .dropdown .dropbtn {
   font-size: 20px;
   border: none;
   outline: none;
   color: #221f45;
-  /* color: #545454; */
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -335,9 +334,12 @@ body {
 /* Add a red background color to navbar links on hover */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: lightgray;
+  background-color: #221f45;
+  color: white;
 }
-
+.dropdown:hover .dropbtn i{
+  color: white !important;
+}
 .whatsnew:hover {
   color: #fd6700;
   letter-spacing: .1em;
@@ -384,7 +386,8 @@ body {
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #221f45b9;
+  color: white;
 }
 
 /* Show the dropdown menu on hover */
@@ -500,7 +503,7 @@ body {
 }
 
 .item-body {
-  width: 300px;
+  width: 100%;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
@@ -540,13 +543,29 @@ body {
 .flex-item {
   width: 350px;
   height: 430px;
-  border: 1px solid #ccc;
   box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   margin: 20px;
   padding: 20px;
   box-sizing: border-box;
   font-family: 'Lato';
   transition: 2s;
+}
+
+@media (max-width: 450px) {
+  .flex-item{
+    width: 300px;
+    height: 390px;
+  }
+  .flex-item img{
+    width: 55%;
+    height: 35%;
+  }
+  .item-stat{
+    width: 100px;
+  }
+  .item-check{
+    height: 32px;
+  }
 }
 
 .flex-item:hover{
