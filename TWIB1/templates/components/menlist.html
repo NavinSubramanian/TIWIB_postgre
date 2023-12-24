@@ -1,0 +1,32 @@
+{% for op in value %}
+    {% if forloop.last %}
+        <div class="flex-item" 
+            hx-get="{% url 'menpage' %}?page={{ page|add:1 }}" 
+            hx-trigger="intersect once"
+            hx-target="this" 
+            hx-swap="afterend" 
+        >
+    {% else %}
+    <div class="flex-item">
+        {% endif %}
+        <a href="/products/{{op.id}}" class="item-name">{{op.name | truncatechars:35 }}</a>
+        <img class="item1" src="{{op.pic}}">
+        {% if loggedin %}
+        <form id='formId' method="post" action="savedproducts">
+            {%csrf_token%}
+            <button type='submit' class="savebtn" value="{{op.id}}" name="saved"> SAVE</button>
+        </form>
+        {% else %}
+        <h5 class="logintosave"
+            style="font-family: 'Plus jakarta sans';font-weight: 400;font-size: small;text-align: center;color: #221f45;transition: 1s;">
+            <i>(Login to save)</i></h5>
+        {% endif %}
+        <p class="item-body">{{op.des | truncatechars:160}}</p>
+        <div class="bottom" style="display: flex;align-items: center;">
+            <p class="item-stat">₹ {{op.rate}}</p>
+            <a href="{{op.link}}" target="_blank">
+            <button class="item-check">CHECK IT OUT</button>
+            </a>
+        </div>
+    </div>
+{% endfor %}

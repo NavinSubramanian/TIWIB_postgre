@@ -13,12 +13,6 @@ body{
   height: auto;
 }
 
-.fa-solid{
-  color: #221f45;
-}
-
-
-
 
 
 .landing__page{
@@ -1159,7 +1153,6 @@ h2 {
   border: none;
   outline: none;
   color: #221f45;
-  /* color: #545454; */
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -1179,9 +1172,15 @@ h2 {
 /* Add a red background color to navbar links on hover */
 .navbar a:hover,
 .dropdown:hover .dropbtn {
-  background-color: lightgray;
+  background-color: #221f45;
+  color: white;
 }
-
+.dropdown .dropbtn i{
+  color: #221f45;
+}
+.dropdown:hover .dropbtn i{
+  color: white !important;
+}
 .whatsnew:hover {
   color: #fd6700;
   letter-spacing: .1em;
@@ -1228,7 +1227,8 @@ h2 {
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #221f45b9;
+  color: white;
 }
 
 /* Show the dropdown menu on hover */

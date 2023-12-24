@@ -23,8 +23,50 @@
 
 
   <section class="landing__page">
-    <div class="main__logo">
+    <div class="main__logo" style="position: relative;">
       <img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" data-aos="fade-down" data-aos-once="false" data-aos-duration="2000" class="header__img"></img>
+      {% if loggedin %}
+      <img src="{% static 'images/profile.png' %}" class="user-pic" onclick="toggleMenu()">
+      <div class="sub-menu-wrap" id="subMenu">
+        <div class="sub-menu">
+          <div class="user-info">
+            <img src="{% static 'images/profile.png' %}" alt="">
+            <h3>Name</h3>
+          </div>
+          <hr style="border: 0;height: 1px;width: 100%;background: #ccc;margin: 15px 0 10px;">
+          <form action="logins" method="post">
+            {%csrf_token%}
+            <button value="{{userid.id}}" name='user' class="sub-menu-link">
+              <i class="fa-solid fa-user"></i>
+              <p>View Profile</p>
+              <span>></span>
+            </button> 
+          </form>
+          <form action="logout" method="post">
+            {%csrf_token%}
+            <button href="" class="sub-menu-link">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <p>Logout</p>
+              <span>></span>
+            </button>  
+          </form>
+          <button class="sub-menu-link">
+            <i class="fa-solid fa-square-plus"></i>
+            <p>Create blog</p>
+            <span>></span>
+          </button>
+        </div>
+      </div>
+      {% endif %}
+
+      <script>
+        let subMenu = document.getElementById("subMenu")
+
+        function toggleMenu () {
+          subMenu.classList.toggle("open-menu")
+        } 
+      </script>
+
     </div>
     <img src="{% static 'images/61195ed506c73c67adaf0a3d_Group 44.svg' %}" class="main__images right__img" data-aos="slide-left" data-aos-once="false" data-aos-duration="2000" align="right">
     <img src="{% static 'images/61195ef16ada8678daf3f267_Group 45.svg' %}" class="main__images left__img" data-aos="slide-right" data-aos-once="false" data-aos-duration="2000" align="left">
@@ -32,11 +74,13 @@
       <div clas="para">
         <p class="para1" data-aos="fade-up" data-aos-once="true" data-aos-duration="2000">Unearth the extraordinary:</p>
         <p class="para2" data-aos="fade-up" data-aos-once="true" data-aos-duration="2000">a curated collection of remarkable finds</p>
-      </div>     
+      </div>
+      {% if loggedin != True %}     
       <div class="logreg__buttons" >
         <button class="button1 button" data-aos="flip-up" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1200" id="openLogin">Login</button>
         <button class="button2 button" data-aos="flip-up" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1200"  id="openPopup">Register</button>
       </div>
+      {% endif %}
        <p class="guaranteed" data-aos="fade-in" data-aos-once="true" data-aos-duration="2000" data-aos-delay="2200">Products you’ll <img src="{% static 'images/61195da63e9b07d94bbaa046_heart (1).svg' %}"></img>,
       guaranteed</p>
   </section>
@@ -45,7 +89,7 @@
   
   <div id="loginContent">
     <div class="center-form">
-      <form class="loginform" method="post" action="check">
+      <form class="loginform" method="post" action="/check">
         {% csrf_token %}
         <div class="login-container">
           <img class="login-img" src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}">
@@ -151,7 +195,7 @@
 
   <section class="hero__stories">
     <div style="display:flex; flex-direction:column; place-items:center;">
-      <h1 style="font-family: 'Montserrat';font-weight:500;font-size:30px;margin-bottom:-20px;" data-aos="fade-down" data-aos-once="false" data-aos-duration="1500">Blogs</h1>
+      <h1 style="font-family: 'Montserrat';font-weight:500;font-size:30px;margin-bottom:-20px;">Blogs</h1>
       <h5 style="font-family: 'Montserrat';font-weight:300;font-size:20px;margin-bottom:20px;">For all your needs</h5>
       <i class="fa fa-chevron-left prev"></i>
       <i class="fa fa-chevron-right next"></i>
@@ -220,7 +264,7 @@
 
       <!-- Need to change link for new button -->
 
-      <a href="/home/" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;row-gap: 10px;justify-content: center;">
+      <a href="{% url 'homepage' %}" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;row-gap: 10px;justify-content: center;">
         <i class="fa-solid fa-house"></i>
         <button class="btn-5">WHATS NEW</button>
       </a>
@@ -339,6 +383,7 @@
     AOS.init({
       offset: 120,
       easing: 'ease',
+      disable: window.innerWidth < 468,
     });
 
     document.querySelectorAll('img')

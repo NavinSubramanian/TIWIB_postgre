@@ -29,7 +29,7 @@
     </div>
     <div class="openMenu"><i class="fa-solid fa-bars"></i></div>
     <ul class="mainMenu">
-      <li><a href="/home/">Home</a></li>
+      <li><a href="{% url 'homepage' %}">Home</a></li>
       <li><a href="/allgiftsguide/">Gift Blogs</a></li>
       <!-- <li><a href="/submitaproduct/">Submit Product</a></li> -->
       <li><a href="/contactus/">Contact</a></li>
@@ -73,7 +73,7 @@
     <div class="drop__containers">
       <!-- Need to change link for new button -->
 
-      <a href="/home/" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;justify-content: center;row-gap: 10px;">
+      <a href="{% url 'homepage' %}" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;justify-content: center;row-gap: 10px;">
         <i class="fa-solid fa-house"></i>
         <button class="btn-5">WHATS NEW</button>
       </a>
@@ -149,10 +149,27 @@
       
     </div>
   </section>
+  <!-- {% if messages %}
+    {% for m in messages %}
+    <div class="alert alert-success" id="msg" role="alert" style="width: 100%;background-color: rgba(3, 164, 3, 0.422);color: white;">
+      {{m}}
+    </div>
+    {% endfor %}
+  {% endif %} -->
   <main style="width:100vw;">
     {% for item in mainitem %}
     <section class="mainitem" style="margin-top: 100px;">
-      <div class="main-left">
+      <div class="main-left" style="position: relative;">
+        {% if loggedin %}
+        <form id='formId' method="post" action="savedproducts">
+          {%csrf_token%}
+          <button type='submit' class="savebtn" value="{{item.id}}" name="saved" data-aos="fade-right" data-aos-once="true" data-aos-duration="2000" data-aos-delay="2900"> SAVE</button>
+        </form>
+        {% else %}
+        <h5 class="logintosave" data-aos="fade-right" data-aos-once="true" data-aos-duration="2000" data-aos-delay="2900"
+          style="font-family: 'Plus jakarta sans';font-weight: 400;font-size: large;text-align: center;color: #221f45;transition: 1s;">
+          <i>(Login to save)</i></h5>
+        {% endif %}
         <img src="{{item.pic}}" data-aos="fade-right" data-aos-once="true" data-aos-duration="2000" data-aos-delay="1000" alt="">
       </div>
       <div class="main-right">
@@ -213,6 +230,15 @@
     AOS.init();
   </script>
 
+  <!-- For the alert message -->
+
+  <script>
+    if($('#msg').length > 0){
+      $('#msg').remove();
+      console.log("saved");
+      alert("Saved Successfully!");
+    }
+  </script>
 
   </main>
 </body>

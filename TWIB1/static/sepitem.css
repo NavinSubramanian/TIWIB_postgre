@@ -1264,6 +1264,35 @@ h2 {
   height: 70%;
   mix-blend-mode: multiply;
 }
+.savebtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: block;
+  height: 40px;
+  width: 76px;
+  z-index: 100;
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  border: none;
+  transition: 1s;
+  cursor: pointer;
+  border-radius: 7px;
+}
+.savebtn:hover {
+  background-color: #db0000;
+}
+.logintosave{
+  position: absolute;
+  top: 0;
+  margin: 0;
+  left: 0;
+  background-color: #fbe8de;
+  z-index: 100;
+  display: block;
+}
 
 
 .main-right{
@@ -1353,26 +1382,6 @@ h2 {
   margin-top: 20px;
 }
 
-.savebtn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: none;
-  height: 40px;
-  width: 76px;
-  background-color: red;
-  color: white;
-  font-size: 16px;
-  border: none;
-  transition: 1s;
-  cursor: pointer;
-  border-radius: 7px;
-
-}
-
-.savebtn:hover {
-  background-color: #db0000;
-}
 
 .item-body {
   width: 300px;
@@ -1407,11 +1416,6 @@ h2 {
 .item-check:hover{
   background-color: #4d4790;
 }
-.flex-item:hover .savebtn {
-  display: block;
-  transition: 3s;
-}
-
 
 .flex-item {
   width: 350px;

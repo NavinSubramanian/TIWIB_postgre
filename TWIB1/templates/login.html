@@ -18,11 +18,11 @@
 <body>
   <section class="landing__page">
     <div class="main__logo">
-      <a href="/home/"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
+      <a href="{% url 'homepage' %}"><img src="{% static 'images/ThisIsWhyI_mBroke-removebg-preview.png' %}" class="header__img"></a>
     </div>
     <div class="openMenu"><i class="fa-solid fa-bars"></i></div>
     <ul class="mainMenu">
-      <li><a href="/home/">Home</a></li>
+      <li><a href="{% url 'homepage' %}">Home</a></li>
       <li><a href="/allgiftsguide/">Gift Blogs</a></li>
       <li><a href="/submitaproduct/">Submit Product</a></li>
       <li><a href="/contactus/">Contact</a></li>
@@ -66,7 +66,7 @@
       style="z-index: 10; position: absolute;border: none;height: 9px;background-color: #221f45;width: 100%;display: flex;align-items: center;justify-content: center;">
     <div class="drop__containers" style="z-index: 15;background-color: #FBE8DE;display: flex;">
 
-      <a href="/home/"
+      <a href="{% url 'homepage' %}"
         style="text-decoration: none;color: #221f45;align-items: center;display: flex;flex-direction: column;justify-content: center;row-gap: 10px;">
         <i class="fa-solid fa-house"></i>
         <button class="btn-5">WHATS NEW</button>
@@ -162,13 +162,13 @@
       {% for ops in pros %}
       {%for op in ops%}
       <div class="flex-item">
-        <a href="#" class="item-name">{{op.name}}</a>
+        <a href="#" class="item-name">{{op.name | truncatechars:35}}</a>
         <img class="item1" src="{{op.pic}}">
         <form id='formId' method="post" action="unsavedproducts">
           {%csrf_token%}
           <button type='submit' class="savebtn" value="{{op.id}}" name="unsaved"> UNSAVE</button>
         </form>
-        <p class="item-body">{{op.des}}</p>
+        <p class="item-body">{{op.des | truncatechars:160}}</p>
         <p class="item-stat">{{op.rate}}</p>
         <a href="{{op.link}}" target="_blank">
           <button class="item-check">CHECK IT OUT</button>

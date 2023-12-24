@@ -630,9 +630,15 @@ body {
   /* Add a red background color to navbar links on hover */
   .navbar a:hover,
   .dropdown:hover .dropbtn {
-    background-color: lightgray;
+    background-color: #221f45;
+    color: white;
   }
-  
+  .dropdown .dropbtn i{
+    color: #221f45;
+  }
+  .dropdown:hover .dropbtn i{
+    color: white !important;
+  }
   .whatsnew:hover {
     color: #fd6700;
     letter-spacing: .1em;
@@ -679,7 +685,8 @@ body {
   
   /* Add a grey background color to dropdown links on hover */
   .dropdown-content a:hover {
-    background-color: #ddd;
+    background-color: #221f45b9;
+    color: white;
   }
   
   /* Show the dropdown menu on hover */

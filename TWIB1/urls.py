@@ -4,7 +4,7 @@ urlpatterns=[
     path('',views.index, name="homepage"),
     path('home/',views.index),
     path('inf',views.index),
-    path('men/',views.men),
+    path('men/',views.men,name="menpage"),
     path('movie/',views.movie),
     path('women/',views.women),
     path('dad/',views.dad),

@@ -29,7 +29,7 @@
     </div>
     <div class="openMenu"><i class="fa-solid fa-bars"></i></div>
     <ul class="mainMenu">
-      <li><a href="/home/">Home</a></li>
+      <li><a href="{% url 'homepage' %}">Home</a></li>
       <li><a href="/allgiftsguide/">Gift Blogs</a></li>
       <!-- <li><a href="/submitaproduct/">Submit Product</a></li> -->
       <li><a href="/contactus/">Contact</a></li>
@@ -73,7 +73,7 @@
     <div class="drop__containers">
       <!-- Need to change link for new button -->
 
-      <a href="/home/" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;justify-content: center;row-gap: 10px;">
+      <a href="{% url 'homepage' %}" style="text-decoration: none;color: #221f45;display: flex;flex-direction: column;align-items: center;justify-content: center;row-gap: 10px;">
         <i class="fa-solid fa-house"></i>
         <button class="btn-5">WHATS NEW</button>
       </a>
@@ -164,27 +164,6 @@
         </div>
         {% endif %}
       {% endfor %}
-      <!-- <div class="flex-item">
-        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/937_thumbmail/gifts-for-single-moms.jpg">
-          <h1 class=cat-body>55 Stupendous Gifts For Single Moms Who Deserve Something Special</h1>
-      </div>  
-      <div class="flex-item">
-        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/909_thumbmail/gender-neutral-gifts-for-adults.jpg">
-          <h1 class="cat-body">44 Cool Gender Neutral Gifts For Adults Guaranteed To Make Anyone Smile</h1>
-      </div>  
-      <div class="flex-item">
-        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/463_thumbmail/kitchen-gifts.jpg">
-          <h1 class="cat-body">27 Life-Changing Kitchen Gifts That Every Homeowner Must Have</h1>
-      </div> 
-       <div class="flex-item">
-        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/939_thumbmail/boxing-gifts.jpg">
-          <h1 class="cat-body">37 Knock-Out Boxing Gifts That'll Make You Feel Like A Heavyweight Champ</h1>
-      </div> 
-       <div class="flex-item">
-        <img class="cat1" src="https://cdn.thisiswhyimbroke.com/buying-guides/934_thumbmail/funny-personalized-gifts.jpg">
-          <h1 class="cat-body">28 Ridiculously Funny Personalized Gifts Perfect For Anyone With A Silly Sense Of Humor</h1>
-      </div>  -->
-      
     </div>
     </div> 
 

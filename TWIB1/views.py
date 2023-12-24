@@ -9,9 +9,12 @@ import csv
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic.list import ListView
 
+from django.contrib import messages
+
 loggedin=False
 b='index1.html'
 a=''
+sep=False
 users=''
 userid=''
 max1=0
@@ -59,15 +62,22 @@ def creation(request,genre):
         return func1(title,request)
 
 def seperateprd(request,item):
+        global loggedin,sep
+        sep=True
         it = Content.objects.filter(id=item).values()
         print("got item!")
+        print(loggedin)
         lis = it[0]['name'].split(" ")
         option2 = []
         for i in lis:
                 if len(i) <= 4:
                         continue
                 option2.append(Content.objects.filter(name__icontains=i).values())
-        context={'mainitem':it,'value':option2} 
+        context={
+                'mainitem':it,
+                'value':option2,
+                'loggedin':loggedin,
+        } 
         return render(request,'sepitems.html',context)
 
 def check(request,genre=a):
@@ -76,14 +86,28 @@ def check(request,genre=a):
     user=User.objects.all().values()
     for i in user:
         if i['name']==n1 and i['password']==n2:
-            global users
-            users=n1
-            global b
-            b='afterlogin.html'
-            global userid,loggedin
-            loggedin=True
-            userid=i['id']
-            return render(request,'afterlogin.html',{'userid':i})
+                global users
+                users=n1
+                global b
+                b='afterlogin.html'
+                global userid,loggedin
+                loggedin=True
+                userid=i['id']
+                option = Content.objects.all().order_by("id").reverse()
+                p = Paginator(option,30)
+                page = int(request.GET.get('page',1))
+                opt = p.page(page)
+
+                option2=Content.objects.filter(type__contains='home').values().order_by("id").reverse()
+
+                context = {
+                        'value' : option,
+                        'opt' : opt,
+                        'page' : page,
+                        'loggedin':loggedin,
+                        'userid':i,
+                }
+                return render(request,'index1.html',context)
     return render(request,'index1.html')
 
 
@@ -101,7 +125,10 @@ def logins(request,genre=a):
         print(userid)
         n2=User.objects.filter(id=int(userid)).values()
         c=[]
-        pro=list(set(map(int,n2[0]['products'].split(','))))
+        pro = n2[0]['products'].split(',')
+        while('' in pro):
+                pro.remove('')
+        pro=list(set(map(int,pro)))
         pro.sort(reverse=True)
         for i in pro:
                 g=Content.objects.filter(id=i).values()
@@ -125,19 +152,27 @@ def register(request,genre=a):
     return render(request,'index1.html')
 
 def savedproducts(request,genre=a):
+        global users
         id=request.POST['saved']
+        print(id)
         id=','+id
         print(users)
         user=User.objects.get(name=users)
         user.products+=id
+        print(user.products)
         user.save()
         global a
+        messages.success(request,'Item saved successfully!')
+        if sep:
+                return redirect('/home')
         return func(a,request,max1,max2)
 
 def unsavedproducts(request,genre=a):
+        global users
         id=request.POST['unsaved']
-        print(id)
         id=','+id
+        print(id)
+        print(users)
         user=User.objects.get(name=users)
         index=user.products.find(id)
         user.products=user.products[:index]+user.products[index+len(id):]
@@ -167,6 +202,8 @@ def func1(para,b):
 
 def func2(para1,para,b,max1,max2):
         a=para1
+        global sep
+        sep = False
         print("para",para)
         print("para1",para1)
         global loggedin
@@ -175,9 +212,9 @@ def func2(para1,para,b,max1,max2):
                 option2=Content.objects.filter(Q(rate__range=(max1,max2))).values().order_by("rate")
                 print(option2)
         else:
-                # option2=Content.objects.filter((Q(name__contains=para)|Q(type__contains=para))|Q(rate__range=(max1,max2))).values()
-                option2 = Content.objects.filter(name__icontains=para).values()
+                option2 = Content.objects.filter(name__icontains=para).values()[:200]
         option1=Webpage.objects.filter(type=para1).values()
+        print(option2)
         return render(b,'men3.html',{'values':option1,'value':option2,'v':para,'val':option,'loggedin':loggedin,'max1':max1,'max2':max2,'link':para1})
 
 # class HomeView(ListView):
@@ -188,7 +225,9 @@ def func2(para1,para,b,max1,max2):
 
 def index(request):
         # option=Content.objects.all().values().order_by("id").reverse()[:100]
-
+        global loggedin,sep
+        sep = False
+        print(loggedin)
         option = Content.objects.all().order_by("id").reverse()
         p = Paginator(option,30)
         page = int(request.GET.get('page',1))
@@ -201,6 +240,7 @@ def index(request):
                 'value' : option,
                 'opt' : opt,
                 'page' : page,
+                'loggedin':loggedin,
         }
         
         if request.htmx:
@@ -221,10 +261,26 @@ def men(request):
         print(loggedin)
         option=Content.objects.all()
         a='men'
-        option1=Webpage.objects.filter(type='men').values()
-        option2=Content.objects.filter(Q(type='men') | Q(type='dad')|Q(type='teenboys')|Q(type='boyfriend')|Q(type='husband')).values()
         para1 = "men"
-        return render(request,'men3.html',{'values':option1,'value':option2,'val':option,'loggedin':loggedin,'link':para1})
+        option1=Webpage.objects.filter(type='men').values()
+        option3=Content.objects.filter(Q(type='men') | Q(type='dad')|Q(type='teenboys')|Q(type='boyfriend')|Q(type='husband')).values()
+
+        p = Paginator(option3,45)
+        page = int(request.GET.get('page',1))
+        option2 = p.page(page)
+        context = {
+                'value' : option2,
+                'values' : option1,
+                'val' : option,
+                'loggedin' : loggedin,
+                'link':para1,
+                'page' : page,
+        }
+        
+        if request.htmx:
+                return render(request,'components/itemlist.html',context)
+
+        return render(request,'men3.html',context)
 
 
 def women(request):
@@ -233,7 +289,7 @@ def women(request):
         a='women'
         print(loggedin)
         option1=Webpage.objects.filter(type='women').values()
-        option2=Content.objects.filter(Q(type='women')| Q(type='mom')|Q(type='teengirls')).values()
+        option2=Content.objects.filter(Q(type='women')| Q(type='mothersday')|Q(type='teengirls')).values()
         return render(request,'men3.html',{'values':option1,'value':option2,'val':option,'loggedin':loggedin})
 
 
